@@ -1,0 +1,49 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ESP32:ESP32-WROOM U?
+U 1 1 5D2D1162
+P 5500 3700
+F 0 "U?" H 5475 5087 60  0000 C CNN
+F 1 "ESP32-WROOM" H 5475 4981 60  0000 C CNN
+F 2 "ESP32:ESP32-WROOM" H 5850 5050 60  0001 C CNN
+F 3 "" H 5050 4150 60  0001 C CNN
+	1    5500 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L POWER:+3V3 #PWR?
+U 1 1 5D2D4061
+P 7000 3050
+F 0 "#PWR?" H 7000 2900 50  0001 C CNN
+F 1 "+3V3" H 7015 3223 50  0000 C CNN
+F 2 "" H 7000 3050 50  0001 C CNN
+F 3 "" H 7000 3050 50  0001 C CNN
+	1    7000 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L POWER:GND #PWR?
+U 1 1 5D2D4631
+P 7000 3400
+F 0 "#PWR?" H 7000 3150 50  0001 C CNN
+F 1 "GND" H 7005 3227 50  0000 C CNN
+F 2 "" H 7000 3400 50  0001 C CNN
+F 3 "" H 7000 3400 50  0001 C CNN
+	1    7000 3400
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

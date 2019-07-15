@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name ESP32)(type KiCad)(uri ${KIPRJMOD}/modules/ESP32.pretty)(options "")(descr ""))
+  (lib (name LCD)(type KiCad)(uri ${KIPRJMOD}/modules/LCD.pretty)(options "")(descr ""))
+)
