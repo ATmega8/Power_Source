@@ -1,4 +1,4 @@
-(module IPS1.14'135x240 (layer F.Cu) (tedit 5D2CDEF3)
+(module IPS1.14'135x240 (layer F.Cu) (tedit 5D2E0149)
   (attr smd)
   (fp_text reference REF** (at -4.9458 -3.0724) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
@@ -30,4 +30,9 @@
   (pad 11 smd rect (at 4.1914 11.049) (size 0.35 2.5) (layers F.Cu F.Paste F.Mask))
   (pad 12 smd rect (at 4.8914 11.049) (size 0.35 2.5) (layers F.Cu F.Paste F.Mask))
   (pad 13 smd rect (at 5.5914 11.049) (size 0.35 2.5) (layers F.Cu F.Paste F.Mask))
+  (model ${KIPRJMOD}/modules/LCD.pretty/IPS1.14'135x240.STEP
+    (offset (xyz 2 -13.8 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 -90))
+  )
 )

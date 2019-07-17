@@ -2,4 +2,6 @@
   (lib (name ESP32)(type Legacy)(uri ${KIPRJMOD}/library/ESP32.lib)(options "")(descr ""))
   (lib (name LCD)(type Legacy)(uri ${KIPRJMOD}/library/LCD.lib)(options "")(descr ""))
   (lib (name POWER)(type Legacy)(uri ${KIPRJMOD}/library/POWER.lib)(options "")(descr ""))
+  (lib (name Device)(type Legacy)(uri ${KIPRJMOD}/library/Device.lib)(options "")(descr ""))
+  (lib (name LED)(type Legacy)(uri ${KIPRJMOD}/library/LED.lib)(options "")(descr ""))
 )
