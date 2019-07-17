@@ -4,4 +4,5 @@
   (lib (name POWER)(type Legacy)(uri ${KIPRJMOD}/library/POWER.lib)(options "")(descr ""))
   (lib (name Device)(type Legacy)(uri ${KIPRJMOD}/library/Device.lib)(options "")(descr ""))
   (lib (name LED)(type Legacy)(uri ${KIPRJMOD}/library/LED.lib)(options "")(descr ""))
+  (lib (name LDO)(type Legacy)(uri ${KIPRJMOD}/library/LDO.lib)(options "")(descr ""))
 )
