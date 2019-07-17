@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://www.eefocus.com/eda-pcb/422267/r0 -->
+<html lang="zh-cn" class="ieundefined gr__eefocus_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/analytics.js"></script>
+    <!-- Charset -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://www.eefocus.com/asset/custom/image/favicon.ico">
+
+<title>原理图设计 - 跟我学KiCad 3-EDA/PCB-与非网</title>
+
+<meta name="copyright" content="Copyright &amp;copy; 2013">
+<meta name="author" content="与非网,eefocus.com">
+<meta name="generator" content="Pi Engine">
+<meta name="keywords" content="元器件,PCB设计,网格,苏老师讲电路设计">
+<meta name="description" content="所谓英雄所见略同，刚开始做KiCad的教程，惊见朋友转发自公众号“KiCad交流学习”的一篇文章“KiCad5.0快速入门（五）-- 绘制原理图” ，正好其刚发出的跟我要发布的都是关于原理图绘制的部分。作者刘力写的实在是好，可见也对KiCad很熟悉并下了功力，因此就借花献佛，将他的文章分享在此。">
+
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/article-front.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/front.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/toper.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/upgrade.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/sweetalert.css" media="screen" rel="stylesheet" type="text/css">
+
+
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/gtm.js"></script><script src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/push.js"></script><script type="text/javascript" async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5499aafcda37a38c5f0000b5.js"></script><script type="text/javascript" async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/ga.js"></script><script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/api.js"></script>
+<script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/jquery.min.js"></script>
+<script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/bootstrap.min.js"></script>
+<!--[if lt IE 10]><script type="text/javascript" src="https://asset.semidata.info/new.eefocus.com/theme-channel/js/jPlaceholder.js"></script><![endif]-->
+<script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/sweetalert.min.js"></script>
+<script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/scrollWord-min.js"></script>
+
+
+<script src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/share.js"></script><style type="text/css">.api-qrcode-panel { position: fixed !important; top: 50% !important; right: 0 !important; margin-right: 0 !important; width: 130px !important; z-index: 2000 !important; font: 12px/1.5 'Microsoft yahei' !important; color: #666 !important; transition: all .3s ease-in-out !important; word-break: break-all !important; word-wrap: break-word !important; text-align: center !important; }.api-qrcode-panel.api-qrcode-panel-show { right: 0 !important; margin-right: 0 !important; }.api-qrcode-panel-inner { position: relative !important; right: -75% !important; transition: all .3s ease-in-out !important; padding: 7px 15px !important; background: #fff !important; }.api-qrcode-panel-inner.api-qrcode-panel-inner-show { right: 0 !important; }.api-qrcode-hd { text-align: left !important; padding: 0 6px !important; overflow: hidden !important; }.api-qrcode-close { float: right !important; cursor: pointer !important; font-size: 14px !important; line-height: 16px !important; font-weight: bold !important; }.api-qrcode-title {}.api-qrcode-bd {}.api-qrcode-img { display: block !important; margin: 0 !important; border: 0 !important; width: 100px !important; height: auto !important; }.api-qrcode-desc { padding: 0 6px !important; }@media (max-width: 480px) { .hidden-xxs { display: none !important; } }</style><link rel="stylesheet" href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/share_style0_16.css"></head>
+
+<body id="pi-channel" class="zh-cn" data-gr-c-s-loaded="true">
+    <!-- Top bar: include  entrance -->
+    <!-- Entrance -->
+  <link rel="stylesheet" type="text/css" href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/header.css">
+  <!--[if lt IE 9]>
+    <script crossorigin="anonymous" integrity="sha384-DpyZMYXeM1EZzDFVMTZohQpDybSnl2C5t7O9OFmUz/DtsSBtUv3Aac30gGal+y/t" src="https://lib.baomitu.com/html5shiv/3.7/html5shiv.min.js"></script>
+  <![endif]-->
+
+  <section class="common-h-wper">
+    <div class="common-h-top">
+      <header class="common-h-outer">
+        <!--Common Nav-->
+        <nav class="common-h-nav">
+          <a href="https://www.eefocus.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=eefocus&amp;utm_content=eefocus&amp;utm_term=eefocus" class="nav-link active" title="看行业资讯，观技术交流" target="_blank">
+            <span class="brand b-eefocus"></span>
+            <span class="web">与非网</span>
+          </a>
+          <a href="https://www.cirmall.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=eefocus&amp;utm_content=cirmall&amp;utm_termcirmall" class="nav-link" title="看别人设计、晒自己方案" target="_blank">
+            <span class="brand b-cirmall"></span>
+            <span class="web">电路城</span>
+          </a>
+          <a href="https://www.moore8.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=eefocus&amp;utm_content=moore8&amp;utm_term=moore8" class="nav-link" title="做行业名师、学专业技能" target="_blank">
+            <span class="brand b-moore8"></span>
+            <span class="web">摩尔吧</span>
+          </a>
+
+          <a href="https://www.bom2buy.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=eefocus&amp;utm_content=eda&amp;utm_term=bom2buy" class="nav-link" title="比供应报价，推荐最优方案" target="_blank">
+            <span class="brand b-bom2buy"></span>
+            <span class="web">买芯片</span>
+          </a>
+          <a href="https://www.datasheet5.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=eefocus&amp;utm_content=datasheet5&amp;utm_term=datasheet5" class="nav-link" title="查器件信息，下数据手册" target="_blank">
+            <span class="brand b-d5"></span>
+            <span class="web">元件库</span>
+          </a>
+        </nav>
+
+        <!--Common login-->
+        <section class="common-h-login">
+          <div class="common-logo-name">
+            <a href="https://www.eefocus.com/" target="_blank">
+              <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/eefocus-logo-white.png">
+            </a>
+          </div>
+            <ul class="nav navbar-nav navbar-right" id="userBarAnonymous" style="">
+    <li>
+      <a href="https://www.eefocus.com/saml/index/login/?redirect=https%3A%2F%2Fwww.eefocus.com%2Feda-pcb%2F422267%2Fr0">
+        登录      </a>
+    </li>
+    <li>
+      <a href="https://account.eefocus.com/user/register?app=pib2a5">
+        <!--关于 %s-->
+        <!--注册-->
+注册
+      </a>
+    </li>
+  </ul>
+  <div class="login-wper" id="userBarMember" style="display: none">
+
+    <!--User-->
+    <div class="member-wper">
+      <a class="member-card-item" id="memberCard" href="https://www.eefocus.com/eda-pcb/422267/r0#"></a>
+      <div class="member-card-wper" id="memberProfile">
+        <i class="drop-icon"></i>
+        <span class="card-item">
+            <a id="memberName" href="https://www.eefocus.com/eda-pcb/422267/r0#">
+                名称            </a>
+       </span>
+        <span class="card-item">
+            <a id="member-logout" href="https://www.eefocus.com/saml/index/logout/?redirect=https%3A%2F%2Fwww.eefocus.com%2Feda-pcb%2F422267%2Fr0">
+                退出            </a>
+        </span>
+      </div>
+    </div>
+    <!--Msg-->
+    <div class="msg-wper">
+      <a id="memberMsg" class="msg-place" href="https://www.eefocus.com/eda-pcb/422267/r0#">
+        <span class="msg-bell"></span>
+        <span class="msg-point"></span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+        
+    $(function() {
+      $.getJSON("/system/index/user/?" + new Date().getTime(), function(user) {
+        var ela = $('#userBarAnonymous');
+        var elm = $('#userBarMember');
+        if (user.uid > 0) {
+          ela.hide();
+          elm.show();
+          $('#memberMsg').attr('href', user.message);
+          $('#memberCard').attr('href', user.profile).html(user.avatar);
+          $('#memberName').attr('href', user.profile).html(user.name);
+
+          /*show message number*/
+          $.ajax({
+            type: "GET",
+            url: "//www.eefocus.com/activity/m/getCount",
+            dataType: "json",
+            success: function(data) {
+              if (data.status == 1 && data.data > 0) {
+                $('#memberMsg').children('.msg-point').show();
+              } else {
+                $('#memberMsg').children('.msg-point').hide();
+              }
+            }
+          });
+        } else {
+          ela.show();
+          elm.hide();
+        }
+
+      });
+      var cardTimer = null;
+      var $mCard = $('#memberCard');
+      var $mProfile = $('#memberProfile');
+      $mCard.on('mouseover', function() {
+        clearCardTime();
+      }).on('mouseout', function() {
+        cardTime();
+      });
+
+      $mProfile.on('mouseover', function() {
+        clearCardTime();
+      }).on('mouseout', function() {
+        cardTime();
+      });
+
+      function cardTime() {
+        cardTimer = setTimeout(function() {
+          $mCard.css('borderColor','transparent');
+          $mProfile.hide();
+        }, 400);
+      }
+
+      function clearCardTime() {
+        clearTimeout(cardTimer);
+        $mCard.css('borderColor','#d80d1f');
+        $mProfile.show();
+      }
+    })
+  </script>
+        </section>
+        <!--Common wxcode-->
+        <style>
+.pi-ellipsis-moore8{
+    line-height: 1.5;
+    height: 36px;
+    overflow: hidden;
+    display: block;
+}
+</style>
+
+<section class="common-h-wx common-h-login">
+    <a class="wx-wper-tit" id="wxWperTit" href="javascript:;"><span class="wx-l-logo"></span>技术交流群</a>
+    <div class="wx-wper-con" id="wxWperCon">
+        <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/tmp.5b514488a67f3.jpg" alt="二维码" width="148" height="148">
+        <span class="wx-con-info">添加小编微信，我们会将你拉到相应的技术讨论群</span>
+    </div>
+</section>
+<script type="text/javascript">
+  (function() {
+    var timer,
+        wxWperTit = document.getElementById('wxWperTit'),
+        wxWperCon = document.getElementById('wxWperCon');
+    wxWperTit.onmouseover = wxWperCon.onmouseover = function() {
+        clearTimeout(timer);
+        wxWperCon.style.display = "block";
+    }
+    wxWperTit.onmouseout = wxWperCon.onmouseout = function() {
+        timer = setTimeout(function() {
+            wxWperCon.style.display = "none";
+        },500);
+    }
+  })();
+</script>
+      </header>
+    </div>
+    <div class="common-h-bottom">
+      <header class="common-h-outer">
+        <!--Common Search-->
+        <section class="common-h-search">
+          <form id="form1" action="https://search.eefocus.com/s" name="form1" target="_blank">
+
+            <div class="common-input-group">
+              <input type="hidden" name="app_id" value="1001">
+              <input type="text" class="common-form-control" gtbfieldid="2" autocomplete="off" name="q" value="" maxlength="100" placeholder="请输入关键词        搜资讯查资料        找开发板寻电路方案">
+              <span class="common-input-group-btn">
+                  <button class="common-btn" type="submit" name="sub" value="1">搜索</button>
+              </span>
+            </div>
+          </form>
+        </section>
+      </header>
+    </div>
+  </section>
+
+    
+    <script type="text/javascript">
+        // org.openx.SWFObject.prototype.addParam=function () {
+        //     this.params[arguments[0]]=arguments[1];
+        //             if(!this.params['wmode']){
+        //                 this.params['wmode']="transparent";
+        //             }
+        // }
+    </script>
+
+    <!-- Site logo bar -->
+    <style>
+.pull-right-ads {
+    height: 60px;
+    margin-top: 3px;
+    background-color: transparent;
+}
+.logo-bar{
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
+.logo-bar a {
+    text-decoration: none;
+}
+</style>
+<div class="container logo-bar">
+    <div class="pull-left">
+        <a href="https://www.eefocus.com/" title="与非网">
+            <img id="logoPic" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/eda-pcb.png" class="img-responsive">
+        </a>
+    </div>
+   
+    <!-- Ads -->
+    <div class="pull-right pi-banner-ad pull-right-ads">
+        <!-- /* [id210] 与非网主站 - 文章页logo右侧矩形广告位（583×60） */ -->
+<!--/*
+*
+* Revive Adserver Asynchronous JS Tag
+* - Generated with Revive Adserver v3.2.4
+*
+*/-->
+<ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12702__zoneid=210__cb=80e57ecb39__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12702%26value3%3D42%26zone%3D210%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D4da35eb478ce20d41563368475%7Cgeo%3DUS%26zone%3D210%26url%3Dhttps%253A%252F%252Fwww.mouser.com%252Fnew%252Fjohnson%252Fjohnson-cinch-sma-connectors%252F%253Futm_source%253Deeboardcom%2526utm_medium%253Ddisplay%2526utm_campaign%253Dbelgroup-newjohnsonjohnson-cinch-sma-connectors%2526utm_content%253D583x60%2526utm_id%253D117158" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/6d5660c4a6a0ab0bc3ec6f3af6453a7d.jpg" width="583" height="60" alt="" title="" border="0"></a><div id="beacon_80e57ecb39" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource" width="0" height="0" alt="" style="display:none"></ins>
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+    </div>
+    <!-- Ads -->
+</div>
+<script type="text/javascript">
+(function($) {
+    var designModule = {
+        init: function() {
+            var logoSrc = '',
+                logoName = 'logo',
+                picStyle = 'png',
+                pagePathname = window.location.pathname,
+                pageModal = pagePathname.split("/")[1];
+
+            switch(pageModal) {
+                case 'embedded':
+                    logoName = pageModal;
+                    break;
+                case 'component':
+                    logoName = pageModal;
+                    break;
+                case 'analog-power':
+                    logoName = pageModal;
+                    break;
+                case 'medical-electronics':
+                    logoName = pageModal;
+                    break;
+                case 'sensor':
+                    logoName = pageModal;
+                    break;
+                case 'automobile-electronics':
+                    logoName = pageModal;
+                    break;
+                case 'rf-microwave':
+                    logoName = pageModal;
+                    break;
+                case 'consumer-electronics':
+                    logoName = pageModal;
+                    break;
+                case 'test-measurement':
+                    logoName = pageModal;
+                    break;
+                case 'industrial-electronics':
+                    logoName = pageModal;
+                    break;
+                case 'mcu-dsp':
+                    logoName = pageModal;
+                    break;
+                case 'communication':
+                    logoName = pageModal;
+                    break;
+                case 'fpga':
+                    logoName = pageModal;
+                    break;
+                case 'eda-pcb':
+                    logoName = pageModal;
+                    break;
+                default:
+                    logoName = 'logo';
+            }
+
+            logoSrc = "https://asset.semidata.info/new.eefocus.com/theme-channel/image/"+ logoName +"."+ picStyle +"";
+
+            $('#logoPic').attr('src', logoSrc);
+        }
+    };
+    window.designModule = designModule;
+})(jQuery);
+
+// 设计技巧Logo更换
+designModule.init();
+    
+
+</script>
+
+    <!-- Navbar -->
+        <div class="container">
+        <div class="navbar navbar-default">
+            <ul class="nav navbar-nav pi-navbar-nav" style="margin-left: -15px;">
+    <li>
+        <a href="https://www.eefocus.com/">首页</a>
+    </li>
+    <li class="channel-nav active">
+        <a href="https://www.eefocus.com/article">大事要闻</a>
+        <ul class="sub-channel">
+            <li>
+                <a href="https://www.eefocus.com/embedded/">嵌入式系统</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/component">基础器件</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/analog-power">模拟/电源</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/medical-electronics">医疗电子</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/sensor">传感技术</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/automobile-electronics">汽车电子</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/rf-microwave">射频/微波</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/consumer-electronics">消费电子</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/test-measurement">测试测量</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/industrial-electronics">工业电子</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/mcu-dsp/">控制器/处理器</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/communication/">通信/网络</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/fpga/">可编程逻辑</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/eda-pcb/">EDA/PCB</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/article/tag/%E5%8F%AF%E7%A9%BF%E6%88%B4%E8%AE%BE%E5%A4%87">可穿戴设备</a>
+            </li>
+            <li>
+                <a href="https://www.eefocus.com/article/tag/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>
+            </li>
+        </ul>
+    <span class="pi-navbar-caret"></span><span class="pi-navbar-caret pi-navbar-caret-outer"></span></li>
+    <li>
+        <a href="https://www.eefocus.com/original">与非原创</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/NPI">新品发布</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/document">资料下载</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/blog">博客空间</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/interaction">精彩活动</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/resource">资源中心</a>
+    </li>
+    <li>
+        <a href="https://www.eefocus.com/enewsletter/">资讯合辑</a>
+    </li>
+    <li class="pi-navbar-nav-last">
+        <a href="javascript:void(0)">社区汇</a>
+        <ul class="list-unstyled" style="width: 674px;">
+            <li>
+                <span>模拟/射频/电源社区</span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://adi.eefocus.com/" target="_blank">Power by Linear 技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://analog.eefocus.com/" target="_blank">模拟与电源技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://rf.eefocus.com/">射频微波技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://rohm.eefocus.com/" target="_blank">ROHM技术社区</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>MCU/嵌入式社区</span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.infineonic.org/" target="_blank">英飞凌技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://microchip.eefocus.com/" target="_blank">Microchip技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://www.nxpic.org/" target="_blank">恩智浦技术社区</a>
+                    </li>
+                    <li>
+                        <a href="https://www.stmcu.org.cn/" target="_blank">意法半导体STM8/STM32社区</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>PLD/FPGA社区</span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.openhw.org/" target="_blank">OpenHW开源硬件社区</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>生态圈</span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://mm.nxpic.org/" target="_blank">恩智浦智慧联网生态圈</a>
+                    </li>
+                    <li>
+                        <a href="https://www.infineon-autoeco.com/Home/Index" target="_blank">英飞凌汽车电子生态圈</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    <span class="pi-navbar-caret"></span><span class="pi-navbar-caret pi-navbar-caret-outer"></span></li>
+</ul>
+            <script>
+                jQuery(function($){
+                    /* Fixed navbar dropdown-menu style */
+                    var $lastNav = $('.pi-navbar-nav > li:last');
+                    $lastNav.addClass('pi-navbar-nav-last');
+                    $lastNav.find('ul').removeClass('dropdown-menu').addClass('list-unstyled');
+                    var count = 0, width = 0;
+                    $lastNav.find('ul:first > li').each(function (){
+                        count++;
+                    });
+                    width = count * 155 + 54;
+                    $lastNav.find('ul:first').css('width', width + 'px');
+                    var channelNav = $('.pi-navbar-nav > li:nth-child(2)');
+                    channelNav.addClass('channel-nav');
+                    channelNav.find('ul').removeClass('dropdown-menu').addClass('sub-channel');
+
+                    var module = 'channel';
+                    if ('channel' === module) {
+                        $('.pi-navbar-nav > li:nth-child(2)').addClass('active');
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Flash messenger -->
+        
+        <!-- Blocks starts -->
+                        <div class="pi-zone-1">
+            <div class="panel panel-default widget-second_title">
+    <div class="panel-body"><style type="text/css">
+.navbar-default .navbar-nav > li > a {padding:15px 32px;}</style>
+<style type="text/css">
+.resource-nav {
+/*        line-height: 28px;
+*/        border-style: none solid solid;
+        border-width: 0 1px 1px;
+        border-color: #e6e5e5;
+        display: table;
+        min-height: 50px;
+        width: 100%;
+    }
+    .resource-nav > strong {
+        color: #222;
+        display: table-cell;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        width: 88px;
+    }
+    .resource-nav > div {
+        display: table-cell;
+        padding: 8px 0 8px 0;
+        vertical-align: middle;
+    }
+    .resource-nav a {
+        color: #969696;
+        display: inline-block;
+        margin-right: 12px;
+        vertical-align: middle;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .container .navbar.navbar-default {
+        margin-bottom: 0;
+    }</style>
+<div class="resource-nav">
+	<p style="color: #969696; display: table-cell; font-size: 13px; text-align: center; vertical-align: middle; width: 76px;">
+		看点 :</p>
+	<div>
+		<a class="article-front-title" href="https://www.cirmall.com/" target="_blank" title="电路方案">电路方案 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.moore8.com/" target="_blank" title="在线课程"> 在线课程 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.bom2buy.com/" target="_blank" title="芯片全球购"> 芯片全球购 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.eefocus.com/tag/e%E4%B8%96%E7%BB%98" target="_blank" title="e世绘">e世绘 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.eefocus.com/tag/%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%95%85%E4%BA%8B" target="_blank" title="工程师故事"> 工程师故事 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.eefocus.com/tag/%E8%8A%AF%E7%89%87%E4%B8%96%E7%95%8C%E8%A7%82" target="_blank" title="芯片世界观"> 芯片世界观 </a> <span style="color: #969696;margin-right: 11px;">|</span> <a class="article-front-title" href="https://www.eefocus.com/tag/%E8%B6%A3%E7%A7%91%E6%8A%80" target="_blank" title="趣科技">趣科技 </a></div>
+</div>
+<p>
+	&nbsp;</p>
+</div></div>
+<div class="panel panel-default rolling-info-home">
+    <div class="panel-body"><style type="text/css">
+    #js-up li {
+        background-position: left 8px;
+    }
+    .last-item {
+        margin: 3px 16px 0 0;
+    }
+    .col-wrap {
+        padding: 11px 8px 10px 10px;
+        height: 67px;
+        width: 190px;
+        background: #f5f5f5;
+        border: 1px solid #e6e6e6;
+        overflow: hidden;
+    }
+    .col-wrap li {
+        height: auto;
+        line-height: 17px;
+    }
+    .scrollwrap {
+        height: 67px;
+        overflow: hidden;
+    }
+    .gg725 {
+        width: 725px;
+        height: 90px;
+        float: left;
+    }
+    .gg725 img,
+    .gg725 embed {
+        display: block;
+    }
+    .scrollwrap ul li {
+    margin-bottom: 6px;
+    padding-left: 0px;
+    background: none !important;
+    line-height: 17px !important;
+    *zoom: 1;
+    }
+</style>
+
+<div class="widget-rolling-news ">
+    <div class="gg725"><!-- /* [id211] 与非网主站 - 频道页导航栏下方矩形广告位（728×90 */ -->
+<!--/*
+*
+* Revive Adserver Asynchronous JS Tag
+* - Generated with Revive Adserver v3.2.4
+*
+*/-->
+<ins><iframe scrolling="no" frameborder="0" width="728" height="90" style="border: 0px; overflow: hidden;" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource.html"></iframe></ins>
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script></div>
+    <div class="pull-right col-wrap">
+        <div class="scrollwrap">
+            <ul id="js-up" class="list" style="margin-top: 0px;">
+
+
+                
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                    
+
+                    
+                
+                                        
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                    
+
+                    
+                
+                                        
+            <li>
+                    <a title="https://rohm.eefocus.com/activity/rohm2019/" target="" href="https://rohm.eefocus.com/activity/rohm2019/">
+                        <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5d1d6a3c79549.jpg" style="width:334px;height:67px;">
+                    </a>
+                </li><li>
+                    <a title="罗姆设计大赛来了，见证万物互联之路" target="" href="https://rohm.eefocus.com/activity/rohm2019/">
+                        罗姆设计大赛来了，见证万物互联之路                    </a>
+
+                </li><li>
+                    <a title="贸泽新用户首单返现，三人成团满175返175" target="" href="http://www.cirmall.com/bbs/thread-106509-1-1.html">
+                        贸泽新用户首单返现，三人成团满175返175                    </a>
+
+                </li><li>
+                    <a title="英飞凌Position2Go开发套件，一板搞定雷达解决方案" target="" href="http://www.cirmall.com/bbs/thread-106710-1-1.html">
+                        英飞凌Position2Go开发套件，一板搞定雷达解决方案                    </a>
+
+                </li><li>
+                    <a title="https://www.eefocus.com/resource/keysight" target="" href="https://www.eefocus.com/resource/keysight">
+                        <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/334-67(11).jpg" style="width:334px;height:67px;">
+                    </a>
+                </li><li>
+                    <a title="电源能效突破97.5%，轻薄短小不占地儿" target="" href="https://url.eefocus.com/6cp">
+                        电源能效突破97.5%，轻薄短小不占地儿                    </a>
+
+                </li><li>
+                    <a title="电源设计化繁为简，XDP动态配置，迭代仅需数分钟！" target="" href="https://url.eefocus.com/6cq">
+                        电源设计化繁为简，XDP动态配置，迭代仅需数分钟！                    </a>
+
+                </li><li>
+                    <a title="嵌入式应用的评估套件，提供器件样品低成本替代方案" target="" href="https://url.eefocus.com/4mz9">
+                        嵌入式应用的评估套件，提供器件样品低成本替代方案                    </a>
+
+                </li></ul>
+        </div>
+    </div>
+</div>
+<script>
+    new ScrollWord('js-up');
+</script>
+</div></div>
+        </div>
+        
+        <!--Breadcrumb starts-->
+                    <style>
+                .pi-zone-1 .block-container {margin-bottom: 10px;}
+            </style>
+            <div class="breadcrumb">
+                <a href="http://www.eefocus.com/" title="EEFOCUS 主页">EEFOCUS 主页</a><span class="divider">&gt;</span>
+                <a href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a><span class="divider">&gt;</span>
+                                <a href="https://www.eefocus.com/eda-pcb/list-news" title="新闻">
+                                    新闻                                </a><span class="divider">&gt;</span>
+                正文            </div>
+                <!--Breadcrumb ends-->
+
+        <div class="row">
+            <div class="pi-zone-wrap">
+                <div class="main-content col-xs-8">
+                                                                                <div class="pi-zone-module">
+<style>
+    
+.ie11 .article-body ul li, .ie11 .article-body ol li{
+    list-style-position: inside;
+    margin-left:0;  
+}
+    
+</style>
+<!--[if !IE]><!-->
+<script>
+    // 针对IE10
+    if (/*@cc_on!@*/false) {
+        document.documentElement.className += ' ie' + document.documentMode;
+    }
+    // 针对IE11及非IE浏览器，
+    // 因为IE11下document.documentMode为11，所以html标签上会加ie11样式类；
+    // 而非IE浏览器的document.documentMode为undefined，所以html标签上会加ieundefined样式类。
+    if (/*@cc_on!@*/true) {
+        document.documentElement.className += ' ie' + document.documentMode;
+    }
+</script>
+<!--<![endif]-->
+
+<div class="panel panel-default panel-article">
+    <div class="panel-body">
+
+        <div class="article-header">
+            <h1 class="headline">
+            原理图设计 - 跟我学KiCad 3            </h1>
+                        <div class="byline">
+                《苏老师讲电路设计》系列            </div>
+                        <div class="muted subline">
+                <div style="text-align:center;margin-bottom:18px; color: #aaa;">
+                    <span class="mr20">
+                        2018-10-09 13:08:52                    </span>
+                    <span class="mr5">来源：</span><span class="mr20">电路设计技能</span>                </div>
+                <div class="clearfix article-share">
+                    <!-- Baidu Button BEGIN -->
+                    <div class="pull-right jiathis_style" style="margin-left:10px;">
+                        <div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1563368476198">
+                            <a href="https://www.eefocus.com/eda-pcb/422267/r0#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="https://www.eefocus.com/eda-pcb/422267/r0#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a href="https://www.eefocus.com/eda-pcb/422267/r0#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="https://www.eefocus.com/eda-pcb/422267/r0#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                        </div>
+                     </div>
+                    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":"","selectShare":""};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://www.eefcdn.com/vendor/baidu_share/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                    </script>
+
+                    <!-- Baidu Button END -->
+                                            <div class="pull-left" style="color: #555;">
+                            标签：                        </div>
+                        <div class="overhide overhidden new-tags">
+                                                            <a target="_blank" href="https://www.eefocus.com/tag/%E5%85%83%E5%99%A8%E4%BB%B6" title="元器件" class="link">元器件</a>
+                                &nbsp;                                <a target="_blank" href="https://www.eefocus.com/tag/PCB%E8%AE%BE%E8%AE%A1" title="PCB设计" class="link">PCB设计</a>
+                                &nbsp;                                <a target="_blank" href="https://www.eefocus.com/tag/%E7%BD%91%E6%A0%BC" title="网格" class="link">网格</a>
+                                &nbsp;                                <a target="_blank" href="https://www.eefocus.com/tag/%E8%8B%8F%E8%80%81%E5%B8%88%E8%AE%B2%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" title="苏老师讲电路设计" class="link">苏老师讲电路设计</a>
+                                                         </div>
+                                    </div>
+                <!-- add  元器件标签 byzm 20180207-->
+                            </div>
+        </div>
+
+        <div class="clearfix mb10">
+            <div class="clearfix">
+                <div style="float:left;width:300px;height:250px;margin:0 35px 20px 0;">
+                    <!-- /* [id212] 与非网主站 - 文章页内嵌广告位（300×250） */ -->
+                    <!--/*
+                    *
+                    * Revive Adserver Asynchronous JS Tag
+                    * - Generated with Revive Adserver v3.2.4
+                    *
+                    */-->
+                    <ins><iframe scrolling="no" frameborder="0" width="300" height="250" style="border: 0px; overflow: hidden;" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(11).html"></iframe></ins>
+                   
+                </div>
+                <div class="article-body">
+                    <p>
+	&nbsp;</p>
+<div>
+	所谓英雄所见略同，刚开始做KiCad的教程，惊见朋友转发自公众号“KiCad交流学习”的一篇文章“KiCad5.0快速入门（五）-- 绘制原理图” ，正好其刚发出的跟我要发布的都是关于原理图绘制的部分。作者刘力写的实在是好，可见也对KiCad很熟悉并下了功力，因此就借花献佛，将他的文章分享在此。</div>
+<div>
+	&nbsp;</div>
+<div>
+	在我们“<a href="https://www.eefocus.com/article/tag/PCB%E8%AE%BE%E8%AE%A1" target="_blank" style="cursor:pointer;color:#D05C38;text-decoration:underline;">PCB设计</a>技能”这门课的原理图设计部分，我曾经讲过无论任何一个PCB设计工具软件设计原理图都会大致经历如下的10个步骤，KiCad也不例外。因此要想尽快熟悉KiCad在原理图这部分如何使用，就按照如下的10个步骤去体会每个步骤对应的功能是如何实现的，都需要什么样的操作，要注意哪些核心的要点和技巧，再自己动手设计一个项目，就能有所深刻体会。</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>创建工程和文件；</strong></div>
+<div>
+	设置图纸大小： 根据图纸的复杂程度、各<a href="https://www.eefocus.com/article/tag/%E5%85%83%E5%99%A8%E4%BB%B6" target="_blank" style="cursor:pointer;color:#D05C38;text-decoration:underline;">元器件</a>的原理图库，一般A4比较合适，一个设计可以采用多页；</div>
+<div>
+	&nbsp;</div>
+<div>
+	设置文件环境：格点大小、格点属性、光标属性、电气格点属性、图纸颜色等；</div>
+<div>
+	&nbsp;</div>
+<div>
+	加载元器件符号库：如果有已经构建好的符号，则直接加载来用，如果没有的话需要依照数据手册进行构建；</div>
+<div>
+	&nbsp;</div>
+<div>
+	放置元器件： 合理化、按照信号流程、可以翻转、旋转放置，方便连线、清晰理解;</div>
+<div>
+	&nbsp;</div>
+<div>
+	原理图连线： 减少交叉，尽量少用最好是不用文字的Net进行标记；</div>
+<div>
+	&nbsp;</div>
+<div>
+	调整修改原理图： 网标有没有重复、错误的连接、虚连接；</div>
+<div>
+	&nbsp;</div>
+<div>
+	ERC检查（电气规则检查）：电气连接上的错误；</div>
+<div>
+	&nbsp;</div>
+<div>
+	报表输出： 产生用于布局布线的Netlist、用于采购元器件的BOM清单；</div>
+<div>
+	&nbsp;</div>
+<div>
+	文件输出：保存、备份、导出到PDF或其它格式、打印。</div>
+<div>
+	&nbsp;</div>
+<div>
+	下面就是“KiCad交流学习”公众号的文章，作者刘力。</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>原理图一般设计流程</strong></div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cc1ca426.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cc1ca426-thumb.png"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>原理图设计的基本原则</strong></div>
+<div>
+	&nbsp;</div>
+<div>
+	原理图设计的主要任务是将电路中各元器件的电气连接关系表达清楚，以便于电路功能和信号流程分析。</div>
+<div>
+	&nbsp;</div>
+<div>
+	原理图设计一般遵循以下基本原则：</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶以模块化和信号流向为原则摆放元器件，使设计的原理图便于电路功能和原理分析。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶同一模块的元器件尽量靠近，不同模块中元器件稍微远离。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶不要有过多交叉线、过远的平行线。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶充分利用总线、网络标签、电源符号等电气符号使原理图清晰明了。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶推荐使用层次原理图，每张子页A4大小，不论是在电脑屏幕上浏览还是打印出来，都很方便。</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>原理图环境参数设置</strong></div>
+<div>
+	原理图编辑器启动后就可以直接绘制，使用它的默认设置即可。其中<a href="https://www.eefocus.com/article/tag/%E7%BD%91%E6%A0%BC" target="_blank" style="cursor:pointer;color:#D05C38;text-decoration:underline;">网格</a>尺寸不要修改，当设置不正确时，会导致无法捕捉引脚和导线的端点，表面上看引脚和导线连接好了，实际上未连接，报ERC错误。</div>
+<div>
+	&nbsp;</div>
+<div>
+	其他的设置如单位、快捷键、光标形状、颜色等属于个人审美，风格问题，有兴趣的可以试试。</div>
+<div>
+	&nbsp;</div>
+<div>
+	大部分设置都在 首选项 &gt;&gt; 常规选项里。在你绘制原理图之前需要确认一个参数，&lt;自动保存时间&gt; - 防止突遇系统死机和电脑断电，造成数据丢失。系统默认为10分钟，你可以根据需要自行设置，选择 首选项 &gt;&gt; 常规选项 &gt;&gt; 编辑 设置自动保存时间。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cc1eef6d.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cc1eef6d-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cc212831.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cc212831-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div>
+	<strong>图纸设置</strong></div>
+<div>
+	图纸大小和标题栏设置。</div>
+<div>
+	&nbsp;</div>
+<div>
+	默认图纸大小为A4，建议不要修改，当原理图中只有几个元器件时，也不要将图纸版面改为更小的尺寸，当一张A4版面放不下元器件时，使用层次原理图。</div>
+<div>
+	&nbsp;</div>
+<div>
+	在标题栏中添加公司或产品logo，通过顶部菜单 放置 &gt;&gt; 图片 的方法给原理图标题栏添加logo，但是发现这种方法不怎么完美。① logo在标题栏上可以随意编辑移动；②在层次原理图结构中，logo只添加到当前图纸上，其他图纸没有被添加。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cc5e1aa9.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cc5e1aa9-thumb.jpg"></a></div><p>
+	&nbsp;</p>
+<div>
+	&nbsp;</div>
+<div>
+	正确的方法应该是使用页面布局编辑器 ，从工程管理窗口打开页面布局编辑器，选择 放置 &gt;&gt; 图片，将logo放置到标题栏，保存页面布局文件到工程文件夹内。再回到原理图编辑器，点击 页面布局设置 &gt;&gt; 浏览 选择刚才保存的页面布局文件。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cca20871.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cca20871-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cca31c89.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cca31c89-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cd0f40ce.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cd0f40ce-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cd121be5.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cd121be5-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>原理图菜单工具</strong></div>
+<div>
+	KiCad的原理图组件名称叫做Eeschema，建议大家先将每个菜单工具都打开看看，熟悉下各个菜单工具的位置，可以发现原理图组件功能非常简洁明了。</div>
+<div>
+	&nbsp;</div>
+<div>
+	版本5增加了Spice仿真功能，以后有机会再专门出一个kicad的Spice仿真教程。</div>
+<div>
+	&nbsp;</div>
+<div>
+	使用最多的工具当属右边的放置工具栏，配合右键菜单可以几乎完成整个原理图的绘制。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cd981d2e.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cd981d2e-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>绘制层次原理图</strong></div>
+<div>
+	当电路规模较大时，一张A4图纸不能放下时，需要用到层次原理图。KiCad支持三种样式的层次原理图。①主电路--子电路； ②子电路--子电路； ③ 扁平化结构。</div>
+<div>
+	&nbsp;</div>
+<div>
+	主电路--子电路，将子电路当成一个黑盒，引出输入输出引脚，在原理图中当成一个你自定义的芯片。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cdb56c63.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cdb56c63-thumb.png"></a></div>
+<div style="text-align: center;">
+	子电路--子电路</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cde735fb.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cde735fb-thumb.png"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	扁平化结构，各个子电路之间没有直接连接，通过全局标签来连接</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cde744fd.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cde744fd-thumb.png"></a></div><p>
+	&nbsp;</p>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;主电路--子电路层次原理图绘制方法。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;在右侧工具栏选择 创建层次图页，输入子电路的名称，子电路在主电路页面中的矩形框称之为图页符号。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;双击图页符号进入子电路原理图，放置层次标签。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp; &nbsp;<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2eaa3d080.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2eaa3d080-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;右键离开图页，选择右侧工具栏 从相应的图页层次标签中导入放置层次引脚]</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2ce153b5a.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2ce153b5a-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;光标放到图页符号框内，单击自动出现层次引脚（下图动画中是另一个添加层次引脚的方式），此时主--子电路通过层次标签连接在一起了。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cee98199.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cee98199-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;子电路-子电路层次原理图，根表不放置元器件，只放置子电路的图页符号，各个图页符号在根表再用导线连接起来。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cee90e38.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cee90e38-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;扁平化层次原理图不通过层次标签来连接各个子电路，而是通过全局标签。（电源符号也是全局标签）</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;扁平化层次结构中根表充当各个子电路的入口位置，除了图页符号，没有任何东西。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;本次的入门教程原理图使用该方法绘制。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cf03ba0d.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cf03ba0d-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	1. &nbsp; &nbsp;创建层次图页后，进入子图页绘制原理图。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cf0d8e24.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cf0d8e24-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	2. &nbsp; &nbsp;放置原理图符号</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;按快捷键A，弹出选择符号窗口，在搜素框输入符号名称进行搜素。对于通用符号而言，输入参考标识符。如电阻R、电容C、电感L、二极管D、三极管Q，再在符号属性中修改名称。对于专用符号而言，如IC，输入名称搜索。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;虽然软件自带有一万多个符号，但市场上的元器件实在太多，不可能都包含在里面，当搜索不到该符号时，需要自己根据芯片的数据手册制作符号。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cf84b80e.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cf84b80e-thumb.jpg"></a></div><p>
+	&nbsp;</p>
+<div>
+	&nbsp;</div>
+<div>
+	3. &nbsp; &nbsp;符号吸附在光标上，随光标位置移动。按快捷键V，弹出编辑值字段窗口，修改文本值。对电阻等元器件而言，输入的是电阻值；对二极管，三极管而言，输入的是它们的具体型号。</div>
+<div>
+	&nbsp;</div>
+<div>
+	参考标识符现阶段不用修改，整个原理图绘制完成后，统一进行批注。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cf8385f6.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cf8385f6-thumb.png"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	4. &nbsp; &nbsp;按快捷键 R，进行水平、垂直放置。</div>
+<div>
+	&nbsp;</div>
+<div>
+	按快捷键 M，移动符号。</div>
+<div>
+	&nbsp;</div>
+<div>
+	按快捷键 C，复制符号。</div>
+<div>
+	&nbsp;</div>
+<div>
+	鼠标滚轮进行放大缩小或者按F1, F2缩放。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cfb08409.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cfb08409-thumb.png"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	5. &nbsp; &nbsp;放置电源符号</div>
+<div>
+	&nbsp;</div>
+<div>
+	按快捷键 P，弹出选择电源符号窗口，与放置普通符号没有区别。唯一的区别是电源符号不能修改，如果对软件自带的电源符号不满意，需要自己制作</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2cfe78a23.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2cfe78a23-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d03a20c5.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d03a20c5-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d06e86bc.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d06e86bc-thumb.png"></a></div><p>
+	&nbsp;</p>
+<div>
+	&nbsp;</div>
+<div>
+	6. &nbsp; &nbsp;放置连线</div>
+<div>
+	&nbsp;</div>
+<div>
+	光标放到符号引脚上，对齐到引脚小圆圈。按快捷键 W 放置连线。</div>
+<div>
+	&nbsp;</div>
+<div>
+	当导线与引脚正常连接上时，引脚小圆圈消失。导线悬空、连接不正常时在导线的末端会出现矩形框。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d09bc998.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d09bc998-thumb.png"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d0eb1b99.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d0eb1b99-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	7. &nbsp; &nbsp;放置总线</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;KiCad的原理图总线与别的PCB软件不同，没有总线标签，只是起到美观作用，实际连接通过网络标签。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;选择右侧工具栏 放置总线，绘制一条总线，完成后再放置总线入口，在总线末端放置网络标签。</div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d1a2ae94.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d1a2ae94-thumb.gif"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	8. &nbsp; &nbsp;放置网络标签</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;在原理图中，各个元器件符号之间要建立连接关系，除了使用导线之外，还可以使用网络标签，系统识别其连接关系的依据是标签的名称。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;KiCad中有四种形式的标签，如下表所示：</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d19d9cf4.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d19d9cf4-thumb.png"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d210a970.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d210a970-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d277dbf0.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d277dbf0-thumb.gif"></a></div><p>
+	&nbsp;</p>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div>
+	9. &nbsp; &nbsp;未使用引脚处理</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp;为保持良好习惯，在原理图设计中，没有使用的引脚建议放置未连接标记，也是为了电气规则检查没有任何错误。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d2890ac4.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d2890ac4-thumb.png"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	10. &nbsp; &nbsp;批注原理图符号</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp; &nbsp;给原理图符号参考标识符统一编号，选择顶部工具栏 批注原理图符号，批注原理图提供了一些设置，根据需求选择，第一次批注保持默认设置即可。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d301c174.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d301c174-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	11. &nbsp; &nbsp;给原理图符号分配PCB封装</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp; 选择顶部工具栏 分配PCB封装到原理图符号 图标，弹出分配封装窗口，左侧为软件所有PCB封装库，中间是此次原理图待分配封装的符号，右侧为过滤后封装库表。</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp; 分配封装窗口顶部栏有几个过滤选项，符合条件的封装出现右侧，先选中中间的符号，再在右侧双击分配封装。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d3046649.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d3046649-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d30aea17.gif" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d30aea17-thumb.gif"></a></div><p>
+	&nbsp;</p>
+<div>
+	&nbsp;</div>
+<div>
+	12. 电气规则检查</div>
+<div>
+	&nbsp;</div>
+<div>
+	▶ &nbsp; &nbsp; 当原理图很复杂时，人难免会范错误，最好的方法是设计电气规则检查。▶ &nbsp; &nbsp; 选择顶部工具栏 执行电气规则检查，ERC选项里有规则检查项目，初学者一般无需改动即可满足要求。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d337977a.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d337977a-thumb.png"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d38a4a29.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d38a4a29-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d38b575b.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d38b575b-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	ERC提示有18个错误，接下来我们来介绍错误及解决方法。</div>
+<div>
+	&nbsp;</div>
+<div>
+	错误2：引脚没有连接。</div>
+<div>
+	&nbsp;</div>
+<div>
+	这个是原理图中最常见的错误，单击错误，光标自动指向错误的符号，并且显示一个错误标记，双击该标记，出现详细错误信息。经检查发现是网络标签写错了，修改两边的网络标签一致解决该错误。</div>
+<div>
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d38dee78.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d38dee78-thumb.jpg"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d3ba7d20.png" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d3ba7d20-thumb.png"></a></div>
+<div style="text-align: center;">
+	&nbsp;</div>
+<div style="text-align: center;">
+	<a href="https://upload.semidata.info/new.eefocus.com/article/image/2018/10/09/5bbc2d4183a97.jpg" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5bbc2d4183a97-thumb.jpg"></a></div>
+<div>
+	&nbsp;</div>
+<div>
+	错误3：引脚连接到其他一些引脚，但无引脚来驱动它。</div>
+<div>
+	&nbsp;</div>
+<div>
+	（翻译的不够好，哪位英语好的同学帮忙下，在公众号留言就好</div>                </div>
+            </div>
+            <div class="clearfix" style="line-height:18px;margin-bottom:20px;">
+                
+                
+            </div>
+                                        <div class="text-center">
+                    <ul class="pagination">
+                                            <li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267">1</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p2">2</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p3">3</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p4">4</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p5">5</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p6">6</a>
+                                            </li><li>
+                        <a href="https://www.eefocus.com/eda-pcb/422267/p7">7</a>
+                                        </li><li class="active"><a href="https://www.eefocus.com/eda-pcb/422267/r0" rel="nofollow">阅读更多</a>
+                    </li></ul>
+                </div>
+
+                            
+            <!--<div style="margin: 25px 0; padding: 0 45px; text-align: right;">
+                <div class="dashed dashed-equal"></div>
+                <div style="margin-top: -15px;">
+                    <strong style="padding: 0 5px; line-height: 1.8; font-size: 14px; font-weight: bold; background: #fff;">
+                        关注与非网微信 ( ee_focus )
+                    </strong>
+                </div>
+                <div style="line-height: 1.8;">限量版产业观察、行业动态、技术大餐每日推荐<br>享受快时代的精品慢阅读</div>
+                <img style="width: 94px; height: 94px;" src="https://asset.semidata.info/new.eefocus.com/module-channel/image/weixin-code.jpg" />
+                <div>
+                <a target="_blank" href="//url.eefocus.com/2y3">2014年STM32全国研讨会视频火热出炉</a>
+                </div>
+                <div class="dashed dashed-equal-half"></div>
+            </div>-->
+            <style type="text/css">
+.newlist-item a, .newlist-item ins{
+		font-size: 16px;
+		color:#428bca;
+                text-decoration: none;
+	}</style>
+<ul>
+	<li class="newlist-item"><ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12826__zoneid=499__cb=8525603161__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12826%26value3%3D267%26zone%3D499%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D262d5681e66293fb1563368475%7Cgeo%3DUS%26zone%3D499%26url%3Dhttps%253A%252F%252Frsonline.cn%252Fweb%252F%253Fcm_mmc%253DCN-DIS-_-EEFOCUS-_-Jun-19-_-summerpromotion-Bilboard" target="_blank">欧时夏日钜惠，限时进入享超值好礼！</a><div id="beacon_8525603161" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(1).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(1)" width="0" height="0" alt="" style="display:none"></ins>
+</li>
+<li class="newlist-item"><ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12668__zoneid=500__cb=f276687181__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12668%26value3%3D42%26zone%3D500%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D8df472cb6831e3fd1563368475%7Cgeo%3DUS%26zone%3D500%26url%3Dhttp%253A%252F%252Fwww.cirmall.com%252Fbbs%252Fthread-106509-1-1.html" target="_blank">贸泽电子“大侠”在线支招，最后一招绝了！</a><div id="beacon_f276687181" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(2).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(2)" width="0" height="0" alt="" style="display:none"></ins></li>
+<li class="newlist-item"><ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12815__zoneid=501__cb=73c52b4b32__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12815%26value3%3D124%26zone%3D501%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3Dfb4504f47196d9121563368475%7Cgeo%3DUS%26zone%3D501%26url%3Dhttp%253A%252F%252Fh.analog.com%252FCN-eBook-SOURCE-CIRCUIT-YANG%253FADICID%253DBNAD_CN_P110593_EEFCN-TXT-1x1_200" target="_blank">下载《新概念模拟电路》，从丰富的案例深入浅出地了解模拟电路</a><div id="beacon_73c52b4b32" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(3).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(3)" width="0" height="0" alt="" style="display:none"></ins></li>
+<li class="newlist-item"><ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12634__zoneid=502__cb=e2da2d2a18__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12634%26value3%3D171%26zone%3D502%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D749ad92c6fffd9c51563368475%7Cgeo%3DUS%26zone%3D502%26url%3Dhttps%253A%252F%252Furl.eefocus.com%252Fdejie" target="_blank">树莓派3B+超低价124元入！先到先得~</a><div id="beacon_e2da2d2a18" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(4).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(4)" width="0" height="0" alt="" style="display:none"></ins></li>
+</ul>
+<!-- /* 文章底部文字广告 */ --><script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+<div>
+	<div style="margin: 25px 0; padding: 0 45px; text-align: right;">
+		<div class="dashed dashed-equal">
+			&nbsp;</div>
+		<div style="margin-top: -15px;">
+			<strong style="padding: 0 5px; line-height: 1.8; font-size: 14px; font-weight: bold; background: #fff;">关注与非网微信 ( ee-focus ) </strong></div>
+		<div style="line-height: 1.8;">
+			限量版产业观察、行业动态、技术大餐每日推荐<br>
+			享受快时代的精品慢阅读</div>
+		<img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/eefocus.jpg" style="width: 94px; height: 94px;">
+		<div class="dashed dashed-equal-half">
+			&nbsp;</div>
+	</div>
+	<p>
+		<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></p>
+</div>
+<p>
+	&nbsp;</p>
+
+                    </div>
+
+        <div class="block-container ad-border" style="padding-left:14px;line-height:20px;">
+            <!-- /* [id271] 与非网主站 - 文章页底部文字广告 */ -->
+            <!--/*
+            *
+            * Revive Adserver Asynchronous JS Tag
+            * - Generated with Revive Adserver v3.2.4
+            *
+            */-->
+            <ins><iframe scrolling="no" frameborder="0" width="728" height="90" style="border: 0px; overflow: hidden;" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(12).html"></iframe></ins>
+            
+        </div>
+
+    </div>
+</div>
+<div id="pi-comment-lead" style=""><link href="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/front(1).css" rel="stylesheet" type="text/css">
+<div class="comments-panel" id="comments">
+    <div class="comments-header">
+        <h4>全部评论 <span class="num">( 0 )</span></h4>
+    </div>
+
+    <div class="comment-item" id="js-comment-form">
+    <textarea placeholder="请发表评论……" class="input-block-level js-comment-txt" rows="3"></textarea>
+    <div class="hide clearfix comment-form">
+        <form action="https://www.eefocus.com/comment/post/submit/" method="POST" name="comment-post" id="comment-post">        <textarea placeholder="请发表评论……" name="content" class="input-block-level" rows="3"></textarea>
+        <input type="hidden" name="id" value=""><input type="hidden" name="root" value=""><input type="hidden" name="reply" value=""><input type="hidden" name="module" value="channel"><input type="hidden" name="category" value="article"><input type="hidden" name="item" value="422267"><input type="hidden" name="redirect" value="%2Feda-pcb%2F422267%2Fr0"><input name="markup" type="hidden" value="text">        
+                
+                            <img width="150" height="50" alt="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/captcha.php" onclick="this.src=&#39;//www.eefocus.com/articlescript/captcha.php?id=e680b9b9534ecd01bf7479e6dd9eee06&amp;refresh=&#39;+Math.random()" style="cursor: pointer; vertical-align: middle;"><br>
+         <input name="captcha[id]" type="hidden" value="e680b9b9534ecd01bf7479e6dd9eee06">
+         <input name="captcha[input]" type="text">
+                 <div class="pull-right js-comment-btn">
+            <button class="btn btn-primary">
+                发表评论            </button>
+        </div>
+    </form></div>
+        <div class="hide well well-small">
+        请<a href="https://www.eefocus.com/saml/index/login/?redirect=https%3A%2F%2Fwww.eefocus.com%2Feda-pcb%2F422267%2Fr0">登录</a>后发表评论    </div>
+</div>
+
+        <div class="text-center comment-none">
+        <strong class="muted">尚无评论.</strong>
+    </div>
+    </div></div>
+<script>
+    $.getJSON("/comment/index/load/", {
+        uri: "/eda-pcb/422267/r0",
+        time: new Date().getTime()
+    })
+    .done(function (data) {
+        if (data.content) {
+            var el = $('#pi-comment-lead');
+            el.show().html(data.content);
+        }
+    });
+</script>
+<div class="main-block">
+        <div class="panel panel-default panel-main">
+        <div class="panel-heading">
+            <span class="pi-icon-dot-o"></span>
+            <div class="pi-panel-heading-inner">
+                继续阅读            </div>
+        </div>
+
+        <div class="panel-body">
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/446905" title="知道这些，你就是老鸟PCB工程师了">知道这些，你就是老鸟PCB工程师了</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <a class="pull-left" target="_blank" href="https://www.eefocus.com/eda-pcb/446905" title="知道这些，你就是老鸟PCB工程师了">
+                       <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5d2c764b2148d-thumb.jpg" alt="知道这些，你就是老鸟PCB工程师了" style="width:100px;height:75px;">
+                    </a>
+                                        <p>
+                        有一句俗语叫“细节决定成败”，PCB工程师菜鸟和老鸟之间的距离，往往也体现在一些细节中。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-16 05:51:00<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-design" title="技术方案">技术方案</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/component/446790" title="多项产品世界第一，日本电子产业崛起的背后">多项产品世界第一，日本电子产业崛起的背后</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        电子元器件涵盖广，对电子行业具有重要的支撑作用。在通义上，电子元器件是指具有独立电路功能、构成电路的基本单元。电子元器件种类繁多，涉及的范围也不断扩大。根据材料分子组成与结构在元器件制造过程中是否改变，电子元器件可大体分为元件和器件。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/component/" title="基础器件">基础器件</a>
+                    <span style="color: #969696;">发表于：2019-07-15 12:59:09<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/analog-power/446731" title="电路故障分析方法">电路故障分析方法</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <a class="pull-left" target="_blank" href="https://www.eefocus.com/analog-power/446731" title="电路故障分析方法">
+                       <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/5d26e5e180d9a-thumb.png" alt="电路故障分析方法" style="width:100px;height:75px;">
+                    </a>
+                                        <p>
+                        电路的故障类型较多，产生故障的原因也各有不同，因此排除故障的方法也不一样。当电路发生故障时，根据故障现象，通过检查、测量，分析故障产生的原因并确定故障的部位，找到发生故障的元器件的过程。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/analog-power/" title="模拟/电源">模拟/电源</a>
+                    <span style="color: #969696;">发表于：2019-07-15 05:04:00<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-design" title="技术方案">技术方案</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/component/446718" title="MOS管使用你必须要知道的">MOS管使用你必须要知道的</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        MOS管由多数载流子参与导电，也称为单极型晶体管。它属于电压控制型半导体器件。具有输入电阻高（10^7~10^12Ω）、噪声小、功耗低、动态范围大、易于集成、没有二次击穿现象、安全工作区域宽等优点，现已成为双极型晶体管和功率晶体管的强大竞争者。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/component/" title="基础器件">基础器件</a>
+                    <span style="color: #969696;">发表于：2019-07-15 05:20:00<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-design" title="技术方案">技术方案</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/consumer-electronics/446684" title="一加7 Pro拆解：屏幕占成本1/4，主要组件还是由美日韩把持">一加7 Pro拆解：屏幕占成本1/4，主要组件还是由美日韩把持</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        一加一直是走一个小众精品的路线，近一两年里它取得了不少成绩，包括打入了美国的运营商销售体系、保持在3000元以上价位段的前五名位置、最早推进5G终端的开发厂商之一。虽然它并没有手机行业头部巨头动辄上千万的出货量，但是它在全世界范围内，稳稳在高端机领域占有一席位                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/consumer-electronics/" title="消费电子">消费电子</a>
+                    <span style="color: #969696;">发表于：2019-07-13 08:52:07<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                    </div>
+    </div>
+            <div class="panel panel-default panel-main">
+        <div class="panel-heading">
+            <span class="pi-icon-dot-o"></span>
+            <div class="pi-panel-heading-inner">
+                更多资讯
+            </div>
+        </div>
+
+        <div class="panel-body">
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/447211" title="外媒：美国禁令助中国半导体崛起">外媒：美国禁令助中国半导体崛起</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        一年前，美国对智能手机芯片的禁令让北京意识到必须迅速并且大幅发展本国产业，以减少对进口芯片的依赖。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-17 14:35:34<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/447210" title="贸易战或使三星失去7nm订单">贸易战或使三星失去7nm订单</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        汇丰证券昨（15）日在报告中指出，若日本继续对韩禁运半导体材料，可能将导致三星&nbsp;7nm订单被迫转给台积电，进而促使台积电获利增长。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-17 14:35:29<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/447193" title="士兰微加速推进厦门项目建设，化合物半导体芯片产线达该领域最高水平">士兰微加速推进厦门项目建设，化合物半导体芯片产线达该领域最高水平</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        士兰微电子决定加速推进在厦门的化合物半导体芯片及12英寸特色工艺半导体芯片制造生产线建设，并分别计划在今年第四季度和明年试投产。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-17 14:25:56<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/447229" title="EDA365电子论坛 最受中国电子硬件工程师喜爱的网站">EDA365电子论坛 最受中国电子硬件工程师喜爱的网站</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        当我们站在智能科技的展会上，看到了一些新兴的电子产品不断亮相，不由得对电子工程师的职业充满了敬佩。他们运用自己所学到的知识理论，打造出了一款又一款的智能科技产品，让人们感觉到电子行业的发展是魅力无穷的。于是，在那个时候，很多人就励志成为一名出色的电子工程师。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-17 07:54:00<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                        <div class="article-box">
+                <div class="article-title-box">
+                    <a class="title" target="_blank" href="https://www.eefocus.com/eda-pcb/447104" title="台积电3nm厂明年开工，投资超6000亿">台积电3nm厂明年开工，投资超6000亿</a>
+                </div>
+                <div class="clearfix article-desc">
+                                        <p>
+                        台积电3纳米宝山厂都市计划变更案件正式通过。                    </p>
+                </div>
+                <div class="article-meta">
+                    来自：<a style="margin-right: 40px; color: #165488;" target="_blank" href="https://www.eefocus.com/eda-pcb/" title="EDA/PCB">EDA/PCB</a>
+                    <span style="color: #969696;">发表于：2019-07-17 06:43:06<span>
+                    <a class="pull-right" href="https://www.eefocus.com/article/list-news" title="新闻">新闻</a>
+                </span></span></div>
+            </div>
+                    </div>
+    </div>
+    </div>
+
+<!-- 新的gg.eefocusg广告 -->
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+<script type="text/javascript">
+    $.get('/article/index/visit/article-422267' + "?t=" + new Date().getTime());
+</script>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var user;
+        $.ajax({
+            cache:    false,
+            async:    false,
+            dataType: 'json',
+            type:     'get',
+            url:      '/system/index/user',
+            success:  function (e) {
+                user = e;
+            }
+        });
+        var params       = new Array();
+        params['page']   = 'article-detail';
+        params['action'] = 'view';
+        params['type']   = 'article';
+        params['param1'] = 'EDA/PCB';
+        params['param2'] = '原理图设计 - 跟我学KiCad 3';
+        params['uid']    = user ? user.uid : 0;
+
+        // If it is comment processing, record comments
+        var comment = window.location.hash;
+        commentDetails = comment.split('-');
+        if ('#comment' === commentDetails[0]) {
+            params['page']   = 'post-comment';
+            params['action'] = 'comment';
+            params['type']   = 'article';
+            params['param3'] = commentDetails[1];
+        }
+        insertAccessRecord(params);
+    };
+</script>
+</div>
+                                        
+                                                        </div>
+                                <div class="pi-zone-8 col-xs-4">
+                    <div class="panel panel-default widget-article-home-300250-ad ad-border">
+    <div class="panel-body"><style type="text/css">
+.block-container.ad-border img {
+  max-width: 100%;
+  height: auto;
+}</style>
+
+<!-- /* [id269] 与非网主站 - 技术分类&文章页右侧矩形广告位_300×250  */ -->
+<!--/*
+*
+* Revive Adserver Asynchronous JS Tag
+* - Generated with Revive Adserver v3.2.4
+*
+*/-->
+<ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12630__zoneid=269__cb=14ba9b8352__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12630%26value3%3D171%26zone%3D269%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D3162de73c75440431563368475%7Cgeo%3DUS%26zone%3D269%26url%3Dhttp%253A%252F%252Fwww.cirmall.com%252Fbbs%252Fthread-106403-1-1.html" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/ai.php" width="300" height="250" alt="" title="" border="0"></a><div id="beacon_14ba9b8352" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(5).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(5)" width="0" height="0" alt="" style="display:none"></ins>
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+
+<script type="text/javascript">
+setTimeout(function(){
+ $("div[id^='ox_']").css('display','block');
+ },1000);
+</script>
+
+</div></div>
+<div class="panel panel-default eda-pcb-top-n-by-recommended">
+    <div class="panel-heading">
+                        <span class="pi-icon-dot-o"></span>
+                        <div class="pi-panel-heading-inner">好文推荐</div>
+                    </div><div class="panel-body"><ul class="list">
+        <li><a href="https://www.eefocus.com/eda-pcb/447211" title="外媒：美国禁令助中国半导体崛起" target="_blank">外媒：美国禁令助中国半导体崛起</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447210" title="贸易战或使三星失去7nm订单" target="_blank">贸易战或使三星失去7nm订单</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447193" title="士兰微加速推进厦门项目建设，化合物半导体芯片产线达该领域最高水平" target="_blank">士兰微加速推进厦门项目建设，化合物半导体芯片产线达该领域最高水平</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447104" title="台积电3nm厂明年开工，投资超6000亿" target="_blank">台积电3nm厂明年开工，投资超6000亿</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447090" title="设计疏忽导致电路故障实例分析" target="_blank">设计疏忽导致电路故障实例分析</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447058" title="细看我国集成电路发展状况" target="_blank">细看我国集成电路发展状况</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/447024" title="南京成立IC设计产业创新中心，华大九天牵头" target="_blank">南京成立IC设计产业创新中心，华大九天牵头</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/446976" title="从设计到封装，半导体是如何制作的？" target="_blank">从设计到封装，半导体是如何制作的？</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/446966" title="现代工业芯片粮食不可或缺，“IC 之都”正当崛起" target="_blank">现代工业芯片粮食不可或缺，“IC 之都”正当崛起</a></li>
+        <li><a href="https://www.eefocus.com/eda-pcb/446934" title="台积电：女员工待遇多方面超越男性" target="_blank">台积电：女员工待遇多方面超越男性</a></li>
+    </ul></div></div>
+<div class="panel panel-default widget-bom2buy">
+    <div class="panel-body"><style type="text/css">
+/* 2015-4-24 bom2buy add */
+.bom2buy-div-home {
+  background: url("https://www.eefocus.com/asset/theme-eefocus/css/imgss/article-bom2.png") no-repeat;
+  width: 318px;
+  height: 140px;
+  margin-top: 16px;
+}
+
+.bom2buy-div-home .bom-form {
+   margin: 0 auto;
+  width: 280px;
+  height: 32px;
+  position: absolute;
+  top: 98px;
+  left: 20px;
+}
+
+.bom2buy-div-home .enter-bom {
+   float: left;
+  height: 30px;
+  width: 265px;
+  padding-left: 7px;
+  border: 1px solid #ccc;
+  border-right: none;
+  font-size: 13px;
+  color: #fff;
+  outline: 0;
+  background: url(/asset/theme-eefocus/css/imgss/bg-op.png) repeat;
+}
+
+.bom2buy-div-home .enter-bom:focus {
+  outline: 0;
+}
+
+.bom2buy-div-home .search-bom-btn {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 58px;
+  height: 50px;
+  border-top-right-radius:6px;
+  border-bottom-right-radius:6px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bom2buy-div-home .search-bom-btn .search-img {
+  vertical-align: middle;
+  margin-left: 8px;
+  background: url(/asset/theme-eefocus/css/imgss/cn-search.png) no-repeat 
+
+0 0;
+  width: 58px;
+  height: 50px;
+  text-align: center;
+}</style>
+<script>
+$(function(){
+$("#key").focus(function(){
+   if ($(this).val() == '请输入芯片型号') $(this).val('');
+});
+
+$("#key").blur(function(){
+   if ($(this).val() == '') $(this).val('请输入芯片型号');
+});
+
+})
+</script>
+<div class="bom2buy-div-home">
+	<div style="position:relative;">
+		<form action="https://www.bom2buy.com/search?utm_campaign=BOM2BUYshangxian&amp;utm_medium=search&amp;utm_source=eefocus&amp;utm_content=yizhanshigouwu&amp;utm_term=BOM2BUY" class="bom-form" method="get" name="bom2buy">
+			<input autocomplete="off" class="enter-bom" id="key" name="part" type="text" value="请输入芯片型号"><button class="search-bom-btn" type="submit">
+			<div class="search-img">
+				&nbsp;</div>
+			</button></form>
+	</div>
+</div>
+</div></div>
+<div class="panel panel-default widget-Buy nowtext">
+    <div class="panel-heading">
+                        <span class="pi-icon-dot-o"></span>
+                        <div class="pi-panel-heading-inner">资源集锦</div>
+                    </div><div class="panel-body">
+<div class="list-widget common-list">
+    <ul>
+            <li class="">
+            <a href="https://url.eefocus.com/6c0" title="200现金奖励升级，成为e络盟新用户，加送STM32!" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                200现金奖励升级，成为e络盟新用户，加送STM32!            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6a1" title="低压断路器电子脱扣器(ETU)解决方案下载" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                低压断路器电子脱扣器(ETU)解决方案下载            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6c6" title="深入浅出了解模拟电路，《新概念模拟电路》下载" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                深入浅出了解模拟电路，《新概念模拟电路》下载            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bs" title="智能筒灯监测“人流量”，隐私问题你怎么看？" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                智能筒灯监测“人流量”，隐私问题你怎么看？            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6c5" title="流式细胞分析仪解决方案下载" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                流式细胞分析仪解决方案下载            </a>
+        </li>
+            <li class="">
+            <a href="http://url.eefocus.com/596?eefocus" title="一款口袋里的USB示波器和多功能仪器" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                一款口袋里的USB示波器和多功能仪器            </a>
+        </li>
+            <li class="">
+            <a href="https://www.eeboard.com/infineon-position2go/" title="【有奖问答+免费试用】英飞凌Position2Go知多少，点击进来告诉你" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                【有奖问答+免费试用】英飞凌Position2Go知多少，点击进来告诉你            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bc" title="德国品质，创新独特，R&amp;S FPC频谱分析仪为你提供无与伦比的优异性能" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                德国品质，创新独特，R&amp;S FPC频谱分析仪为你提供无与伦比的优异性能            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/hk1" title="Hackaday Prize大赛高手云集，20万美金大奖究竟花落谁家？" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                Hackaday Prize大赛高手云集，20万美金大奖究竟花落谁家？            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bk" title="资深工程师带你一起学习：BCM应用案例及设计难点分析" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                资深工程师带你一起学习：BCM应用案例及设计难点分析            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bl" title="会员福利：学习英飞凌生态圈“中文视频”，赢积分" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                会员福利：学习英飞凌生态圈“中文视频”，赢积分            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6c0" title="注册e络盟，首单85折，200现金开发津贴提前送！" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                注册e络盟，首单85折，200现金开发津贴提前送！            </a>
+        </li>
+        </ul>
+</div>
+</div></div>
+<div class="panel panel-default widget-英飞凌汽车生态圈">
+    <div class="panel-heading">
+                        <span class="pi-icon-dot-o"></span>
+                        <div class="pi-panel-heading-inner">英飞凌汽车生态圈</div>
+                    </div><div class="panel-body">
+<div class="list-widget common-list">
+    <ul>
+            <li class="">
+            <a href="https://url.eefocus.com/6bm" title="凌感课堂——BCM应用案例及设计难点分析" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                凌感课堂——BCM应用案例及设计难点分析            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bn" title="6-7月会员福利计划——学习视频赢积分" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                6-7月会员福利计划——学习视频赢积分            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bo" title="英飞凌汽车电子生态圈——开发板共享计划" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                英飞凌汽车电子生态圈——开发板共享计划            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bp" title="英飞凌汽车电子生态圈——每月之星计划" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                英飞凌汽车电子生态圈——每月之星计划            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/6bq" title="问题一箩筐，谁是答题王？" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                问题一箩筐，谁是答题王？            </a>
+        </li>
+        </ul>
+</div>
+</div></div>
+<div class="panel panel-default remote-list">
+    <div class="panel-heading">
+                        <span class="pi-icon-dot-o"></span>
+                        <div class="pi-panel-heading-inner">技术讨论</div>
+                    </div><div class="panel-body">
+<div class="list-widget common-list">
+    <ul>
+            <li class="">
+            <a href="https://url.eefocus.com/4mz1" title="微芯新出评估套件，评估ARM MCU的好帮手" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                微芯新出评估套件，评估ARM MCU的好帮手            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/4mz4" title="板载超低功耗MCU！ADI新出开发套件，助力IOT原型开发" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                板载超低功耗MCU！ADI新出开发套件，助力IOT原型开发            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/4mz6" title="无需外部元件，精准放大电压的单芯片解决方案" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                无需外部元件，精准放大电压的单芯片解决方案            </a>
+        </li>
+            <li class="">
+            <a href="https://rohm.eefocus.com/activity/rohm2019/" title="罗姆设计大赛来了，见证万物互联之路" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                罗姆设计大赛来了，见证万物互联之路            </a>
+        </li>
+            <li class="">
+            <a href="https://www.eefocus.com/activity/Burnon/welfare2019" title="贝能新型玻璃破碎检测方案来袭，参与答题赢夏日清凉奖励！" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                贝能新型玻璃破碎检测方案来袭，参与答题赢夏日清凉奖励！            </a>
+        </li>
+            <li class="">
+            <a href="https://url.eefocus.com/4mz12" title="居然有个这么好用的WiFi模块，你知道吗？" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                居然有个这么好用的WiFi模块，你知道吗？            </a>
+        </li>
+            <li class="">
+            <a href="http://www.cirmall.com/bbs/thread-106487-1-1.html" title="树莓派3B+仅134元可入，如此福利，奔走相告！" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                树莓派3B+仅134元可入，如此福利，奔走相告！            </a>
+        </li>
+            <li class="">
+            <a href="http://www.cirmall.com/bbs/thread-107132-1-1.html" title="200元开发津贴！成为e络盟新用户，加速实现你的开发心愿！" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                200元开发津贴！成为e络盟新用户，加速实现你的开发心愿！            </a>
+        </li>
+            <li class="">
+            <a href="http://www.cirmall.com/bbs/thread-106403-1-1.html" title="IAIC大赛 – 40万奖金的斗争，谁能拔得头筹" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                IAIC大赛 – 40万奖金的斗争，谁能拔得头筹            </a>
+        </li>
+            <li class="">
+            <a href="http://www.cirmall.com/bbs/thread-106705-1-1.html" title="晒毕设作品，免费领树莓派3B+" class="pi-ellipsis pi-ellipsis-1" target="_blank">
+                晒毕设作品，免费领树莓派3B+            </a>
+        </li>
+        </ul>
+</div>
+</div></div>
+<div class="panel panel-default widget-article-detail-page-ads">
+    <div class="panel-body"><!-- /* [id545] 与非网主站 - 文章页右侧下方（300x250 */ -->
+<!--/*
+*
+* Revive Adserver Asynchronous JS Tag
+* - Generated with Revive Adserver v3.2.4
+*
+*/-->
+<ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12688__zoneid=545__cb=6a0b67a78a__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12688%26value3%3D42%26zone%3D545%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3D890dac836fe1c41a1563368475%7Cgeo%3DUS%26zone%3D545%26url%3Dhttps%253A%252F%252Fwww.mouser.cn%252Fcustomer-service%252F%253Futm_source%253Deefocuscom%2526utm_medium%253Ddisplay%2526utm_campaign%253Dmouser-www.mouser.cncustomer-service%2526utm_content%253D300x250%2526utm_id%253D108119" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/599c3a084b5bb39c630ec7e828032ba7.jpg" width="300" height="250" alt="" title="" border="0"></a><div id="beacon_6a0b67a78a" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(6).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(6)" width="0" height="0" alt="" style="display:none"></ins>
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+
+</div></div>
+                </div>
+                            </div>
+         </div>
+
+                <div style="margin-bottom: 20px;" class="pi-zone-99">
+            <div class="panel panel-default rolling-info-home4 padding-0">
+    <div class="panel-body"><style type="text/css">
+    #js-up4 li {
+        background-position: left 8px;
+    }
+    .last-item {
+        margin: 3px 16px 0 0;
+    }
+    .col-wrap {
+        padding: 11px 8px 10px 10px;
+        height: 90px;
+        width: 353px;
+        background: #f5f5f5;
+        border: 1px solid #e6e6e6;
+        overflow: hidden;
+    }
+    .col-wrap li {
+        height: auto;
+        line-height: 17px;
+    }
+    .scrollwrap {
+        height: 67px;
+        overflow: hidden;
+    }
+    .gg725 {
+        width: 725px;
+        height: 90px;
+        float: left;
+    }
+    .gg725 img,
+    .gg725 embed {
+        display: block;
+    }
+    .scrollwrap ul li {
+    margin-bottom: 6px;
+    padding-left: 0px;
+    background: none !important;
+    line-height: 17px !important;
+    *zoom: 1;
+    }
+    .padding-0 .panel-body{
+        padding:0 !important;
+    }
+    .padding-0{
+        padding:0px !important;
+    }
+</style>
+
+<div class="widget-rolling-news ">
+    <div class="gg725"><!-- /* [id483] 与非网主站 -文章页下方(728x90)  */ -->
+<!--/*
+*
+* Revive Adserver Asynchronous JS Tag
+* - Generated with Revive Adserver v3.2.4
+*
+*/-->
+<ins><a href="https://gg.eefocus.com/www/delivery/ck.php?oaparams=2__bannerid=12654__zoneid=483__cb=5b75525e72__oadest=%2F%2Fanalytics.supplyframe.cn%2Ftrackingservlet%2Ftrack%2F%3Faction%3DadClick_eefocus%26value2%3D12654%26value3%3D178%26zone%3D483%26extra%3Dh_crc%3D2625360942%7Csrv%3Dvm-gg-2%7Cox_v%3D2.8%7Ch_value%3Ddda6e0ee033fd9221563368475%7Cgeo%3DUS%26zone%3D483%26url%3Dhttps%253A%252F%252Furl.eefocus.com%252F6bl" target="_blank"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/ai(1).php" width="728" height="90" alt="" title="" border="0"></a><div id="beacon_5b75525e72" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/lg(7).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/saved_resource(7)" width="0" height="0" alt="" style="display:none"></ins>
+<script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script></div>
+    <div class="pull-right col-wrap">
+        <div class="scrollwrap">
+            <ul id="js-up4" class="list" style="margin-top: 0px;">
+
+
+                
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+                                    
+                    
+
+                                        
+            <li>
+                    <a title="STM32马达控制软件工具SDK_V5.0入门 " target="" href="https://url.eefocus.com/66v?text">
+                        STM32马达控制软件工具SDK_V5.0入门                     </a>
+
+                </li><li>
+                    <a title="罗德与施瓦茨RTM3000电源测试新利器 " target="" href="https://url.eefocus.com/69z?text">
+                        罗德与施瓦茨RTM3000电源测试新利器                     </a>
+
+                </li><li>
+                    <a title="下载 ADI &quot;任意波形发生器方案&quot;" target="" href="https://url.eefocus.com/6a0?text">
+                        下载 ADI "任意波形发生器方案"                    </a>
+
+                </li><li>
+                    <a title="下载 ADI &quot;低压断路器电子脱扣器(ETU)解决方案&quot;" target="" href="https://url.eefocus.com/6a1?text">
+                        下载 ADI "低压断路器电子脱扣器(ETU)解决方案"                    </a>
+
+                </li></ul>
+        </div>
+    </div>
+</div>
+<script>
+    new ScrollWord('js-up4');
+</script>
+</div></div>
+        </div>
+                <!-- Blocks ends -->
+    </div>
+
+    
+    <!-- WeiXin -->
+    <script src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/qrcode.js"></script>
+
+    <!-- Footer: sitelink -->
+    <div class="footer pi-footer text-center">
+      <div>
+          <div>
+              <a href="https://www.eefocus.com/corp/aboutEefocus.html" title="关于我们">关于我们</a> |
+              <a href="https://www.eefocus.com/corp/contact.html" title="联系我们">联系我们</a> |
+              <a href="https://www.eefocus.com/corp/EefocusHr.html" title="加入我们">加入我们</a> |
+              <a href="https://www.eefocus.com/corp/OnlineService.html" title="客户服务">客户服务</a> |
+              <a href="https://www.eefocus.com/corp/law.html" title="相关法律">相关法律</a> |
+              <a href="https://www.eefocus.com/corp/map.html" title="网站地图">网站地图</a> |
+              <a href="https://www.eefocus.com/page/app/" title="客户端">客户端</a> |
+              <a href="https://www.eefocus.com/corp/link.html" title="友情链接">友情链接</a> |
+              <a href="https://www.eefocus.com/feedback/" title="建议指正">建议指正</a> |
+              <a target="_blank" href="https://weibo.com/eefocus" class="fc" title="@与非网"><i class="wb-icon"></i>@与非网</a>
+          </div>
+          <div>
+              © 2010 - 2019 苏州灵动帧格网络科技有限公司 版权所有. <br>
+              ICP经营许可证 苏B2-20140176&nbsp;
+              <a href="http://www.miibeian.gov.cn/" target="_blank">苏ICP备14012660号-6</a><br>
+              <div style="width:300px;margin:0 auto; padding:5px 0;">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32059002001874" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/331491.png" lazysrc="" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;">苏公网安备 32059002001874号</p></a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script async="" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/asyncjs.php"></script>
+    <script>
+        /* Reset carousel when resize window */
+        (function(){
+            if ((window.styleMedia || window.matchMedia) &&
+                ($('.carousel-control-item').length > 1)) {
+                var resetCarousel;
+                $(window).resize(function(){
+                    if (resetCarousel) {
+                        clearTimeout(resetCarousel);
+                    }
+                    resetCarousel = setTimeout(function() {
+                        try {
+                            var $carousel = $('.carousel');
+                            var $carouselInner = $('.carousel-inner');
+                            $carouselInner.css({
+                                'margin-left': 0
+                            });
+                            $carouselInner.find('>:last').remove();
+                            var $carouselParent = $carousel.parent();
+                            $carouselParent.find('script').remove();
+                            $carouselParent.html($carouselParent.html());
+                            new FocusPic($carousel[0].id);
+                        } catch(e) {}
+                    }, 400);
+                });
+            }
+        })();
+
+        if (!Function.prototype.bind) {
+            Function.prototype.bind = function (oThis) {
+                if (typeof this !== "function") {
+                    // closest thing possible to the ECMAScript 5
+                    // internal IsCallable function
+                    throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+                }
+
+                var aArgs = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP = function () {},
+                fBound = function () {
+                  return fToBind.apply(this instanceof fNOP && oThis
+                         ? this
+                         : oThis,
+                         aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
+
+                fNOP.prototype = this.prototype;
+                fBound.prototype = new fNOP();
+
+                return fBound;
+            };
+        }
+
+        $('a[data-toggle=tab]').hover(function(){
+            $(this).tab('show');
+        });
+        $(document).off('.tab.data-api');
+        
+        // 右侧二维码
+        eef_qrcode.init();
+
+    </script><div id="js-api-qrcode-panel" class="api-qrcode-panel hidden-xxs api-qrcode-panel-show"><div id="js-api-qrcode-panel-inner" class="api-qrcode-panel-inner api-qrcode-panel-inner-show"><div class="api-qrcode-hd"><span id="js-api-qrcode-close" class="api-qrcode-close">×</span><div class="api-qrcode-title">官方微信</div></div><div class="api-qrcode-bd"><img class="api-qrcode-img" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/eefocus(1).jpg"><div class="api-qrcode-desc"></div></div></div></div>
+        <img src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/impression" style="display:none;">
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1502657-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['new._setAccount', 'UA-31944875-8']);
+  _gaq.push(['new._trackPageview']);
+  _gaq.push(['new._setAccount', 'UA-31944875-10']);
+  _gaq.push(['new._trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript"><!--//<![CDATA[
+
+var browser={
+    versions:function(){
+           var u = navigator.userAgent, app = navigator.appVersion;
+           return {
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/)||!!u.match(/AppleWebKit/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+         }(),
+         language:(navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+if (browser.versions.mobile != true){
+
+   var ox_u = 'http://gg.eefocus.com/www/delivery/al.php?zoneid=339&target=_blank&layerstyle=simple&align=center&valign=middle&padding=2&closetime=8&padding=2&shifth=0&shiftv=0&closebutton=t&backcolor=FFFFFF&bordercolor=000000';
+   if (document.context) ox_u += '&context=' + escape(document.context);
+   document.write("<scr"+"ipt type='text/javascript' src='" + ox_u + "'></scr"+"ipt>");
+
+}
+//]]>--></script>
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F644a837956e91928688d4a74b9917d47' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/h.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/5499aafcda37a38c5f0000b5.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+
+<script>
+ (function(){
+       var bp = document.createElement('script');
+       var curProtocol = window.location.protocol.split(':')[0];
+       if(curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }else{
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+           var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+<!-- track for url.eefocus.com for PI short links -->
+<script type="text/javascript">
+window.onload = function() {
+    var _pi = document.getElementsByClassName('widget-PI专区');
+    if(_pi) {
+        var _pi_a = _pi[0];
+        if(_pi_a) {
+            var _pageLinks = _pi[0].getElementsByTagName('a');
+            for(var i = 0; i <_pageLinks.length; i++) {
+                _pageLinks[i].onclick = function() {
+                    var url = this.toString() || '';
+                    if (url.indexOf('url.eefocus.com') != -1) {
+                        _gaq.push(['new._trackPageview',url]);
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-NNQBV37');</script>
+
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNQBV37"
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+<script type="text/javascript" src="./原理图设计 - 跟我学KiCad 3-EDA_PCB-与非网_files/front.js"></script>
+
+
+</body></html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/ -->
+<html lang="zh-CN" class="js jetpack-lazy-images-js-enabled gr__haipeng_me"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="http://haipeng.me/xmlrpc.php">
+		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>KiCad 层次原理图的使用方法 – 张海鹏的个人网站</title>
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://secure.gravatar.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="张海鹏的个人网站 » Feed" href="http://haipeng.me/feed/">
+<link rel="alternate" type="application/rss+xml" title="张海鹏的个人网站 » 评论Feed" href="http://haipeng.me/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="张海鹏的个人网站 » KiCad 层次原理图的使用方法评论Feed" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/haipeng.me\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="twentysixteen-jetpack-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/twentysixteen.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/theme.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpfront-scroll-top-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/wpfront-scroll-top.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentysixteen-style-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentysixteen-block-style-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/blocks.css" type="text/css" media="all">
+<!--[if lt IE 10]>
+<link rel='stylesheet' id='twentysixteen-ie-css'  href='http://haipeng.me/wp-content/themes/twentysixteen/css/ie.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentysixteen-ie8-css'  href='http://haipeng.me/wp-content/themes/twentysixteen/css/ie8.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentysixteen-ie7-css'  href='http://haipeng.me/wp-content/themes/twentysixteen/css/ie7.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="social-logos-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jquery.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/related-posts.min.js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://haipeng.me/wp-content/themes/twentysixteen/js/html5.js?ver=3.7.3'></script>
+<![endif]-->
+<link rel="https://api.w.org/" href="http://haipeng.me/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://haipeng.me/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://haipeng.me/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="2018年11月小记" href="http://haipeng.me/2018/11/30/2018%e5%b9%b411%e6%9c%88%e5%b0%8f%e8%ae%b0/">
+<link rel="next" title="2018年年终总结" href="http://haipeng.me/2019/01/09/2018%e5%b9%b4%e5%b9%b4%e7%bb%88%e6%80%bb%e7%bb%93/">
+<meta name="generator" content="WordPress 5.0.4">
+<link rel="canonical" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/">
+<link rel="shortlink" href="https://wp.me/p8qQQ4-az">
+<link rel="alternate" type="application/json+oembed" href="http://haipeng.me/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fhaipeng.me%2F2018%2F12%2F06%2Fkicad-hierarchical-sheet%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://haipeng.me/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fhaipeng.me%2F2018%2F12%2F06%2Fkicad-hierarchical-sheet%2F&amp;format=xml">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//haipeng.me/?wordfence_lh=1&hid=D9A2C89346EA05BB0F8FC11B59E54E97');
+</script><style type="text/css" media="screen">#wp-admin-bar-user-info .avatar-64 {width:64px}</style>
+
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style>		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #000000; }
+</style>
+			<style type="text/css">
+				html:not( .jetpack-lazy-images-js-enabled ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="KiCad 层次原理图的使用方法">
+<meta property="og:url" content="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/">
+<meta property="og:description" content="在很多项目实践中，一张A3或者A4大小的图纸并不能承载全部的项目电路原理图。如果强行把所有的电路原理图画在一张…">
+<meta property="article:published_time" content="2018-12-06T11:20:14+00:00">
+<meta property="article:modified_time" content="2018-12-06T11:20:14+00:00">
+<meta property="og:site_name" content="张海鹏的个人网站">
+<meta property="og:image" content="http://haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png">
+<meta property="og:image:width" content="601">
+<meta property="og:image:height" content="417">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:text:title" content="KiCad 层次原理图的使用方法">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-1884123791.png?fit=32%2C32" sizes="32x32">
+<link rel="icon" href="https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-1884123791.png?fit=192%2C192" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-1884123791.png?fit=180%2C180">
+<meta name="msapplication-TileImage" content="https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-1884123791.png?fit=270%2C270">
+<style type="text/css"></style><link type="text/css" rel="stylesheet" charset="UTF-8" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/main_zh-TW.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/hovercard.min.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/services.min.css"><script type="text/javascript" async="" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/saved_resource"></script></head>
+
+<body class="post-template-default single single-post postid-655 single-format-standard custom-background wp-embed-responsive" data-gr-c-s-loaded="true">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/#content">跳至内容</a>
+
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="http://haipeng.me/" rel="home">张海鹏的个人网站</a></p>
+											<p class="site-description">不定期更新电子设计心得、政治评论、旅行游记、个人日记跟其他乱七八糟的东西</p>
+									</div><!-- .site-branding -->
+
+									<button id="menu-toggle" class="menu-toggle">菜单</button>
+
+					<div id="site-header-menu" class="site-header-menu">
+													<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="主菜单">
+								<div class="menu-%e5%af%bc%e8%88%aa-container"><ul id="menu-%e5%af%bc%e8%88%aa" class="primary-menu"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35" aria-haspopup="true"><a href="http://haipeng.me/about/">关于我</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-432" aria-haspopup="true"><a href="http://haipeng.me/cv/">Curriculum vitae</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+	<ul class="sub-menu">
+		<li id="menu-item-438" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-438"><a href="http://haipeng.me/cv/english-cv/">English CV</a></li>
+	</ul>
+</li>
+	<li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47"><a href="http://haipeng.me/contact/">联系方式</a></li>
+</ul>
+</li>
+<li id="menu-item-38" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-38" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">KiCad相关</a><button class="dropdown-toggle toggled-on" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu toggled-on">
+	<li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-428"><a href="http://haipeng.me/2017/03/01/kicad-tutorial/">使用KiCad制作PCB——零基础KiCad中文教程</a></li>
+	<li id="menu-item-571" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-571"><a href="http://haipeng.me/2018/05/24/kicad_advanced_tutorial_1_new_component/">KiCad进阶中文教程（一）：添加新元件</a></li>
+	<li id="menu-item-609" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-609"><a href="http://haipeng.me/2018/07/11/kicad_advanced_tutorial_2_new_logo/">KiCad进阶中文教程（二）：在电路板上放置自己的Logo</a></li>
+	<li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-521"><a href="http://haipeng.me/2018/04/06/kicad-export-step-3d-cad/">KiCad生成PCB .step格式3D机械CAD文件的方法</a></li>
+	<li id="menu-item-425" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-425"><a href="http://haipeng.me/2017/08/28/emc-guidelines/">电磁兼容性（EMC）设计指南</a></li>
+	<li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-426"><a href="http://haipeng.me/2017/08/21/emc-pcb-layout/">电磁兼容性(EMC)教程——PCB布局</a></li>
+	<li id="menu-item-424" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-424"><a href="http://haipeng.me/2017/09/04/kicad-pcbnew-layer/">KiCad里Pcbnew中各层的使用说明</a></li>
+	<li id="menu-item-422" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-422"><a href="http://haipeng.me/2017/11/18/kicad-qa/">KiCad使用Q&amp;A——我的工程师手记</a></li>
+	<li id="menu-item-501" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-501"><a href="http://haipeng.me/2018/03/13/kicad-tips-snapeda/">KiCad使用小窍门：利用SnapEda轻松找到元件symbol, footprint和3D模型</a></li>
+	<li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-427"><a href="http://haipeng.me/2017/05/30/kicad-xlsx-bom/">KiCad生成xlsx格式的BOM教程</a></li>
+	<li id="menu-item-676" class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-676"><a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/">KiCad 层次原理图的使用方法</a></li>
+	<li id="menu-item-638" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-638"><a href="http://haipeng.me/2018/09/18/two-ways-from-altium-files-to-kicad-files/">Altium文件转成KiCad文件的两种方法</a></li>
+</ul>
+</li>
+<li id="menu-item-495" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-495" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">树莓派相关</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-498" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-498"><a href="http://haipeng.me/2017/12/12/raspberry-pi-vpn-remote-access/">使用树莓派Raspberry Pi搭建VPN并实现远程访问</a></li>
+	<li id="menu-item-497" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-497"><a href="http://haipeng.me/2017/12/18/pivpn-dynamic-ip-dns/">为PiVPN设置动态IP的DNS解析</a></li>
+</ul>
+</li>
+<li id="menu-item-499" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-499" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">电子设计</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-500" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-500"><a href="http://haipeng.me/2018/03/08/electronic-design-note/">张海鹏的电子设计笔记</a></li>
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="http://haipeng.me/2017/10/31/thermostat_with_arduino_micro_via_i2c/">I²C实用教学：基于Arduino Micro的温度传感器</a></li>
+	<li id="menu-item-695" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-695"><a href="http://haipeng.me/2019/01/19/how-to-select-mosfet/">如何正确选择MOSFET</a></li>
+</ul>
+</li>
+<li id="menu-item-41" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41"><a href="http://haipeng.me/category/blog/">博客</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-36"><a href="http://haipeng.me/category/politics/">政治评论</a></li>
+<li id="menu-item-39" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-39"><a href="http://haipeng.me/category/daily/">生活</a></li>
+</ul></div>							</nav><!-- .main-navigation -->
+						
+													<nav id="social-navigation" class="social-navigation" role="navigation" aria-label="社交网络链接菜单">
+								<div class="menu-%e7%a4%be%e4%ba%a4%e7%bd%91%e7%bb%9c%e4%b8%aa%e4%ba%ba%e4%b8%bb%e9%a1%b5-container"><ul id="menu-%e7%a4%be%e4%ba%a4%e7%bd%91%e7%bb%9c%e4%b8%aa%e4%ba%ba%e4%b8%bb%e9%a1%b5" class="social-links-menu"><li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30"><a href="https://www.linkedin.com/in/haipeng-zhang/"><span class="screen-reader-text">张海鹏的领英</span></a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31"><a href="https://www.facebook.com/HaipengInFrance"><span class="screen-reader-text">张海鹏的Facebook</span></a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32"><a href="http://weibo.com/uuwomanizer/"><span class="screen-reader-text">张海鹏的微博</span></a></li>
+</ul></div>							</nav><!-- .social-navigation -->
+											</div><!-- .site-header-menu -->
+							</div><!-- .site-header-main -->
+
+											<div class="header-image">
+					<a href="http://haipeng.me/" rel="home">
+						<img src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/cropped-3949299851.png" srcset="https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-3949299851.png?w=1200 1200w, https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-3949299851.png?resize=300%2C70 300w, https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-3949299851.png?resize=768%2C179 768w, https://i1.wp.com/haipeng.me/wp-content/uploads/2017/02/cropped-3949299851.png?resize=1024%2C239 1024w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="1200" height="280" alt="张海鹏的个人网站">
+					</a>
+				</div><!-- .header-image -->
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+<article id="post-655" class="post-655 post type-post status-publish format-standard hentry category-electronics tag-kicad tag-pcb tag-12">
+	<header class="entry-header">
+		<h1 class="entry-title">KiCad 层次原理图的使用方法</h1>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<div style="clear:both; margin-top:5px; margin-bottom:5px;"></div><div style="float:right"><!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END --></div><div style="clear:both; margin-top:5px; margin-bottom:5px;"></div><p>在很多项目实践中，一张A3或者A4大小的图纸并不能承载全部的项目电路原理图。如果强行把所有的电路原理图画在一张纸上，查阅起来会非常困难。这种情况下我们往往需要依功能组别划分，将整个项目的电路原理图拆解成几页独立而又互相关联的原理图，如《电源电路》、《控制电路》、《外设电路》、《显示电路》等。在KiCad中，可以使用层次原理图功能实现对电路原理图的拆解。</p>
+<p>本篇教程将以锂电池充电电路为例，介绍层次原理图的使用方法，以及全局标签、网络标签、层次标签的使用。</p>
+<p><span id="more-655"></span></p>
+<p>本教程中，要设计一个USB接口的锂电池充电电路，并以锂电池为能源，实现3.3V的直流输出。</p>
+<p>首先打开KiCad，选择新建项目，建立项目文件如图所示：</p>
+<p><img data-attachment-id="659" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-project/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=1920%2C1057" data-orig-size="1920,1057" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="li-po project" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=300%2C165" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=840%2C463" class="alignnone size-large wp-image-659 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/li-po-project.png" alt="" width="840" height="463" data-recalc-dims="1" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=1024%2C564 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=300%2C165 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=768%2C423 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=1200%2C661 1200w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?w=1680 1680w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="659" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-project/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=1920%2C1057" data-orig-size="1920,1057" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="li-po project" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=300%2C165" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?fit=840%2C463" class="alignnone size-large wp-image-659" src="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=840%2C463" alt="" width="840" height="463" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=1024%2C564 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=300%2C165 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=768%2C423 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?resize=1200%2C661 1200w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/li-po-project.png?w=1680 1680w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>在项目文件中打开Eeschema原理图编辑器。在原理图编辑器中，我们将把项目的电路原理图分成两个部分：</p>
+<ol>
+<li>锂电池充电电路</li>
+<li>3.3V低压差线性稳压器电路</li>
+</ol>
+<h3>锂电池充电电路</h3>
+<p>点击右侧工具栏中的 <strong>创建层次图页&nbsp;</strong>按钮 ，光标变为铅笔形状。在原理图页上单击鼠标左键，拉成一个矩形后再次点击鼠标左键，建立一个层次图页。在跳出的&nbsp;<strong>原理图页属性&nbsp;</strong>窗口中，修改文件名称为Li-Po Charger.sch, 修改图页名称为Li-Po Charger，如图所示：<img data-attachment-id="661" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=580%2C427" data-orig-size="580,427" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=300%2C221" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=580%2C427" class="alignnone size-full wp-image-661 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block.png" alt="" width="580" height="427" data-recalc-dims="1" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?w=580 580w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?resize=300%2C221 300w" data-lazy-loaded="1" sizes="(max-width: 580px) 85vw, 580px"><noscript><img data-attachment-id="661" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=580%2C427" data-orig-size="580,427" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=300%2C221" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?fit=580%2C427" class="alignnone size-full wp-image-661" src="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?resize=580%2C427" alt="" width="580" height="427" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?w=580 580w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block.png?resize=300%2C221 300w" sizes="(max-width: 580px) 85vw, 580px" data-recalc-dims="1" /></noscript></p>
+<p>按下键盘Escape键后把光标移至层次原理图上，点击鼠标右键进入分页。在Li-Po Charger原理图中，构造电路原理图如图所示：</p>
+<p><img data-attachment-id="663" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_1/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=1047%2C643" data-orig-size="1047,643" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_1" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=300%2C184" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=840%2C516" class="alignnone size-large wp-image-663 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_1.png" alt="" width="840" height="516" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=1024%2C629 1024w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=300%2C184 300w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=768%2C472 768w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?w=1047 1047w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="663" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_1/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=1047%2C643" data-orig-size="1047,643" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_1" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=300%2C184" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?fit=840%2C516" class="alignnone size-large wp-image-663" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=840%2C516" alt="" width="840" height="516" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=1024%2C629 1024w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=300%2C184 300w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?resize=768%2C472 768w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_1.png?w=1047 1047w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>左侧的USB_B_Micro是一个USB连接器，用了一个TVS二极管进行ESD保护。中间的TP4056是中国集成电路厂家南京拓品微电子出品的锂电池线性充电IC，使用了一个红色LED和绿色LED进行充电状态的指示。最右侧是锂电池连接器。</p>
+<p>以上已经完成了锂电池充电电路的部分。但我们想把锂电池作为电源，完成3.3V和5V的直流输出。</p>
+<p>在右侧工具栏中点按 <strong>放置一个层次标签</strong> 按钮。在弹出的 <strong>原理图层次标签属性</strong> 窗口中输入如下参数：</p>
+<p><img data-attachment-id="664" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_2/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=556%2C279" data-orig-size="556,279" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_2" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=300%2C151" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=556%2C279" class="alignnone size-full wp-image-664 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_2.png" alt="" width="556" height="279" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?w=556 556w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?resize=300%2C151 300w" data-lazy-loaded="1" sizes="(max-width: 556px) 85vw, 556px"><noscript><img data-attachment-id="664" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_2/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=556%2C279" data-orig-size="556,279" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_2" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=300%2C151" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?fit=556%2C279" class="alignnone size-full wp-image-664" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?resize=556%2C279" alt="" width="556" height="279" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?w=556 556w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_2.png?resize=300%2C151 300w" sizes="(max-width: 556px) 85vw, 556px" data-recalc-dims="1" /></noscript></p>
+<p>放置标签在锂电池VBAT旁边并完成连接。同样放置另外一个GND层次标签，放置在锂电池GND旁边并完成连接，如图所示：</p>
+<p><img data-attachment-id="665" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_3/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=377%2C223" data-orig-size="377,223" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_3" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=300%2C177" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=377%2C223" class="alignnone size-full wp-image-665 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_3.png" alt="" width="377" height="223" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?w=377 377w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?resize=300%2C177 300w" data-lazy-loaded="1" sizes="(max-width: 377px) 85vw, 377px"><noscript><img data-attachment-id="665" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_3/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=377%2C223" data-orig-size="377,223" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_3" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=300%2C177" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?fit=377%2C223" class="alignnone size-full wp-image-665" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?resize=377%2C223" alt="" width="377" height="223" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?w=377 377w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_3.png?resize=300%2C177 300w" sizes="(max-width: 377px) 85vw, 377px" data-recalc-dims="1" /></noscript></p>
+<p>点击鼠标右键 <strong>离开分页</strong> 。回到主原理图页后在Li-Po Charger原理图页上点击鼠标右键，选择 导入图页连接，直到放置完所有的图页连接，放置图页连接如图所示：</p>
+<p><img data-attachment-id="667" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_4/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=560%2C440" data-orig-size="560,440" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_4" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=300%2C236" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=560%2C440" class="alignnone size-full wp-image-667 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_4.png" alt="" width="560" height="440" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?w=560 560w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?resize=300%2C236 300w" data-lazy-loaded="1" sizes="(max-width: 560px) 85vw, 560px"><noscript><img data-attachment-id="667" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_4/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=560%2C440" data-orig-size="560,440" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_4" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=300%2C236" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?fit=560%2C440" class="alignnone size-full wp-image-667" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?resize=560%2C440" alt="" width="560" height="440" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?w=560 560w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_4.png?resize=300%2C236 300w" sizes="(max-width: 560px) 85vw, 560px" data-recalc-dims="1" /></noscript></p>
+<p>在右侧工具栏中点按 <strong>放置全局标签</strong> 按钮。在弹出的 <strong>全局标签属性</strong> 窗口中输入如下参数：</p>
+<p><img data-attachment-id="668" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_5/" data-orig-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=556%2C279" data-orig-size="556,279" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_5" data-image-description="" data-medium-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=300%2C151" data-large-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=556%2C279" class="alignnone size-full wp-image-668 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_5.png" alt="" width="556" height="279" data-recalc-dims="1" srcset="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?w=556 556w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?resize=300%2C151 300w" data-lazy-loaded="1" sizes="(max-width: 556px) 85vw, 556px"><noscript><img data-attachment-id="668" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_5/" data-orig-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=556%2C279" data-orig-size="556,279" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_5" data-image-description="" data-medium-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=300%2C151" data-large-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?fit=556%2C279" class="alignnone size-full wp-image-668" src="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?resize=556%2C279" alt="" width="556" height="279" srcset="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?w=556 556w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_5.png?resize=300%2C151 300w" sizes="(max-width: 556px) 85vw, 556px" data-recalc-dims="1" /></noscript></p>
+<p>放置全局标签在层次标签旁，完成连接，如图所示：</p>
+<p><img data-attachment-id="669" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_6/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=601%2C417" data-orig-size="601,417" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_6" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=300%2C208" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=601%2C417" class="alignnone size-full wp-image-669 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/Li-Po-Charger-Block_6.png" alt="" width="601" height="417" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?w=601 601w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?resize=300%2C208 300w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"><noscript><img data-attachment-id="669" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/li-po-charger-block_6/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=601%2C417" data-orig-size="601,417" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Li-Po Charger Block_6" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=300%2C208" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?fit=601%2C417" class="alignnone size-full wp-image-669" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?resize=601%2C417" alt="" width="601" height="417" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?w=601 601w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/Li-Po-Charger-Block_6.png?resize=300%2C208 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /></noscript></p>
+<p>在Li-Po Charger原理图中VBAT和GND属于<strong>电路输出</strong>，会提供给3.3V低压差线性稳压器电路以及5V直流直流转换器。</p>
+<h3>3.3V低压差线性稳压器电路</h3>
+<p>点击右侧工具栏中的 <strong>创建层次图页&nbsp;</strong>按钮 ，光标变为铅笔形状。在原理图页上单击鼠标左键，拉成一个矩形后再次点击鼠标左键，建立一个层次图页。在跳出的&nbsp;<strong>原理图页属性&nbsp;</strong>窗口中，修改文件名称为3.3V LDO.sch, 修改图页名称为3.3V LDO，如图所示：</p>
+<p><img data-attachment-id="670" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=1235%2C395" data-orig-size="1235,395" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=300%2C96" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=840%2C269" class="alignnone size-large wp-image-670 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/3.3V-LDO.png" alt="" width="840" height="269" data-recalc-dims="1" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=1024%2C328 1024w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=300%2C96 300w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=768%2C246 768w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=1200%2C384 1200w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?w=1235 1235w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="670" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo/" data-orig-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=1235%2C395" data-orig-size="1235,395" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO" data-image-description="" data-medium-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=300%2C96" data-large-file="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?fit=840%2C269" class="alignnone size-large wp-image-670" src="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=840%2C269" alt="" width="840" height="269" srcset="https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=1024%2C328 1024w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=300%2C96 300w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=768%2C246 768w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?resize=1200%2C384 1200w, https://i0.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO.png?w=1235 1235w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>按下键盘Escape键后把光标移至层次原理图上，点击鼠标右键进入分页。在3.3V LDO原理图中，构造电路原理图如图所示：</p>
+<p><img data-attachment-id="671" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_1/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=1083%2C719" data-orig-size="1083,719" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_1" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=300%2C199" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=840%2C558" class="alignnone size-large wp-image-671 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/3.3V-LDO-Block_1.png" alt="" width="840" height="558" data-recalc-dims="1" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=1024%2C680 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=300%2C199 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=768%2C510 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?w=1083 1083w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="671" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_1/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=1083%2C719" data-orig-size="1083,719" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_1" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=300%2C199" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?fit=840%2C558" class="alignnone size-large wp-image-671" src="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=840%2C558" alt="" width="840" height="558" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=1024%2C680 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=300%2C199 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?resize=768%2C510 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_1.png?w=1083 1083w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>使用的TLV75533是德州仪器出品的一款LDO芯片。注意，左侧的VBAT和GND层次标签是Input类型，右侧的3.3V层次标签是Output类型。</p>
+<p>点击鼠标右键 <strong>离开分页</strong> 。回到主原理图页后在3.3V LDO原理图页上点击鼠标右键，选择 导入图页连接，直到放置完所有的图页连接。再放置全局标签，连接如图所示：</p>
+<p><img data-attachment-id="673" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_2/" data-orig-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=1327%2C420" data-orig-size="1327,420" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_2" data-image-description="" data-medium-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=300%2C95" data-large-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=840%2C266" class="alignnone size-large wp-image-673 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/3.3V-LDO-Block_2.png" alt="" width="840" height="266" data-recalc-dims="1" srcset="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=1024%2C324 1024w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=300%2C95 300w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=768%2C243 768w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=1200%2C380 1200w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?w=1327 1327w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="673" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_2/" data-orig-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=1327%2C420" data-orig-size="1327,420" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_2" data-image-description="" data-medium-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=300%2C95" data-large-file="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?fit=840%2C266" class="alignnone size-large wp-image-673" src="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=840%2C266" alt="" width="840" height="266" srcset="https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=1024%2C324 1024w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=300%2C95 300w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=768%2C243 768w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?resize=1200%2C380 1200w, https://i1.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_2.png?w=1327 1327w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>注意，左侧的VBAT和GND全局标签是Input类型，右侧的3.3V全局标签是Output类型。</p>
+<p>最后在主原理图上添加3.3V输出的连接器，如图所示：</p>
+<p><img data-attachment-id="674" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_3/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=1355%2C309" data-orig-size="1355,309" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_3" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=300%2C68" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=840%2C192" class="alignnone size-large wp-image-674 jetpack-lazy-image jetpack-lazy-image--handled" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/3.3V-LDO-Block_3.png" alt="" width="840" height="192" data-recalc-dims="1" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=1024%2C234 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=300%2C68 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=768%2C175 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=1200%2C274 1200w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?w=1355 1355w" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><noscript><img data-attachment-id="674" data-permalink="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/3-3v-ldo-block_3/" data-orig-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=1355%2C309" data-orig-size="1355,309" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="3.3V LDO Block_3" data-image-description="" data-medium-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=300%2C68" data-large-file="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?fit=840%2C192" class="alignnone size-large wp-image-674" src="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=840%2C192" alt="" width="840" height="192" srcset="https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=1024%2C234 1024w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=300%2C68 300w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=768%2C175 768w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?resize=1200%2C274 1200w, https://i2.wp.com/haipeng.me/wp-content/uploads/2018/12/3.3V-LDO-Block_3.png?w=1355 1355w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" data-recalc-dims="1" /></noscript></p>
+<p>注意，3.3V Connector中的3.3V和GND全局标签都为Input类型。</p>
+<p>点击上方 批注原理图 按钮，对原理图进行批注。KiCad会将所有的层次分页一次性全部批注。不同原理图上不会出现同样的参考编号。</p>
+<h3>网络标签、全局标签和层次标签</h3>
+<p>网络标签只在当前的层次标签中有效，不区分“输入”或“输出”的类型。具有同样网络标签的网络会被视为具有同样的电气连接。</p>
+<p>全局标签在所有的层次分页中都有效，虽然有“输入”、“输出”或“双向”等类型，但仅仅用来示意。具有同样名称的全局标签，不论是何类型，都视为同一电气连接。</p>
+<p>层次标签是层次分页与其他层次分页的接口。在层次分页中建立层次标签后，要在外部将全局标签或者连线连接到该层次标签以建立电气连接。</p>
+<h3>为什么不建议全部使用全局标签？</h3>
+<p>因为电路的可读性会变得非常差。</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">共享此文章：</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-655" class="share-twitter sd-button share-icon no-text" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/?share=twitter&amp;nb=1" target="_blank" title="点击以在 Twitter 上共享"><span></span><span class="sharing-screen-reader-text">点击以在 Twitter 上共享（在新窗口中打开）</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-655" class="share-facebook sd-button share-icon no-text" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/?share=facebook&amp;nb=1" target="_blank" title="点击以在 Facebook 上共享"><span></span><span class="sharing-screen-reader-text">点击以在 Facebook 上共享（在新窗口中打开）</span></a></li><li class="share-google-plus-1"><a rel="nofollow noopener noreferrer" data-shared="sharing-google-655" class="share-google-plus-1 sd-button share-icon no-text" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/?share=google-plus-1&amp;nb=1" target="_blank" title="点击以在 Google+ 上共享"><span></span><span class="sharing-screen-reader-text">点击以在 Google+ 上共享（在新窗口中打开）</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>相关</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="65" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://haipeng.me/2017/03/01/kicad-tutorial/" title="使用KiCad制作PCB——零基础KiCad中文教程
+
+  KiCad中文论坛已于2018年8月2日正式上线运营，欢迎移步至KiCad中文论坛。论…" rel="nofollow" data-origin="655" data-position="0">使用KiCad制作PCB——零基础KiCad中文教程</a></span><span class="jp-relatedposts-post-date">2017年3月1日</span><span class="jp-relatedposts-post-context">在“电子”中</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="542" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://haipeng.me/2018/05/24/kicad_advanced_tutorial_1_new_component/" title="KiCad进阶中文教程（一）：添加新元件
+
+虽然KiCad作为开源软件已经给我们提供了大量的元件库，但是电子元器件发展更新日新月异，我们时常还是…" rel="nofollow" data-origin="655" data-position="1">KiCad进阶中文教程（一）：添加新元件</a></span><span class="jp-relatedposts-post-date">2018年5月24日</span><span class="jp-relatedposts-post-context">在“博客”中</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="601" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://haipeng.me/2018/07/11/kicad_advanced_tutorial_2_new_logo/" title="KiCad进阶中文教程（二）：在电路板上放置自己的Logo
+
+通常在一块电路板的丝印SilkScreen上除了会有元器件标号、方向外，我们还希望在空白处放置我们自…" rel="nofollow" data-origin="655" data-position="2">KiCad进阶中文教程（二）：在电路板上放置自己的Logo</a></span><span class="jp-relatedposts-post-date">2018年7月11日</span><span class="jp-relatedposts-post-context">在“博客”中</span></p></div></div>	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt="" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/728410102c6a8198ef49280cc67547a2.png" class="avatar avatar-49 photo jetpack-lazy-image grav-hashed grav-hijack jetpack-lazy-image--handled" height="49" width="49" srcset="http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=98&amp;d=mm&amp;r=g 2x" id="grav-728410102c6a8198ef49280cc67547a2-0" data-lazy-loaded="1"><noscript><img alt='' src='http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=49&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /></noscript><span class="screen-reader-text">作者 </span> <a class="url fn n" href="http://haipeng.me/author/haipeng/">haipeng</a></span></span><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/" rel="bookmark"><time class="entry-date published updated" datetime="2018-12-06T19:20:14+00:00">2018年12月6日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="http://haipeng.me/category/electronics/" rel="category tag">电子</a></span><span class="tags-links"><span class="screen-reader-text">标签 </span><a href="http://haipeng.me/tag/kicad/" rel="tag">KiCad</a>、<a href="http://haipeng.me/tag/pcb/" rel="tag">PCB</a>、<a href="http://haipeng.me/tag/%e6%95%99%e7%a8%8b/" rel="tag">教程</a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			《KiCad 层次原理图的使用方法》有2个想法		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-2651" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-2651" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/2865ad1e1ba7bee242063078c0893f2e.png" class="avatar avatar-42 photo jetpack-lazy-image grav-hashed grav-hijack jetpack-lazy-image--handled" height="42" width="42" srcset="http://2.gravatar.com/avatar/2865ad1e1ba7bee242063078c0893f2e?s=84&amp;d=mm&amp;r=g 2x" id="grav-2865ad1e1ba7bee242063078c0893f2e-0" data-lazy-loaded="1"><noscript><img alt='' src='http://2.gravatar.com/avatar/2865ad1e1ba7bee242063078c0893f2e?s=42&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/2865ad1e1ba7bee242063078c0893f2e?s=84&#038;d=mm&#038;r=g 2x' class='avatar avatar-42 photo' height='42' width='42' /></noscript>						<b class="fn">DAMIN</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/#comment-2651">
+							<time datetime="2019-03-25T17:51:16+00:00">
+								2019年3月25日 下午5:51							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>KICAD 复用子电路（布局布线），有相关的知识吗？求教！！！</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/?replytocom=2651#respond" onclick="return addComment.moveForm( &quot;div-comment-2651&quot;, &quot;2651&quot;, &quot;respond&quot;, &quot;655&quot; )" aria-label="回复给DAMIN">回复</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-2652" class="comment byuser comment-author-haipeng bypostauthor odd alt depth-2">
+			<article id="div-comment-2652" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/728410102c6a8198ef49280cc67547a2(1).png" class="avatar avatar-42 photo jetpack-lazy-image grav-hashed grav-hijack" height="42" width="42" data-lazy-srcset="http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=84&amp;d=mm&amp;r=g 2x" data-lazy-src="http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=42&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-728410102c6a8198ef49280cc67547a2-1"><noscript><img alt='' src='http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=42&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/728410102c6a8198ef49280cc67547a2?s=84&#038;d=mm&#038;r=g 2x' class='avatar avatar-42 photo' height='42' width='42' /></noscript>						<b class="fn">haipeng</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/#comment-2652">
+							<time datetime="2019-03-25T17:58:43+00:00">
+								2019年3月25日 下午5:58							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>你指的是 用一张原理图来表示多个相同电路 这种？</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/?replytocom=2652#respond" onclick="return addComment.moveForm( &quot;div-comment-2652&quot;, &quot;2652&quot;, &quot;respond&quot;, &quot;655&quot; )" aria-label="回复给haipeng">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/#respond" style="display:none;">取消回复</a></small></h2>			<form action="http://haipeng.me/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p><p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">姓名 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">电子邮件 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">站点</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">通过邮件通知我后续评论</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">通过邮件通知我有新文章</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="655" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4c0a42f225"></p><!-- 使用合作网站登录 来自 WordPress连接微博 插件 --><style type="text/css">.t_login_text {margin:0; padding:0;}.t_login_button {margin:0; padding: 5px 0;}.t_login_button a{margin:0; padding-right:4px; line-height:15px}.t_login_button img{display:inline; border:none;}</style><p class="t_login_text t_login_text1">您可以用合作网站帐号登录:</p><p class="connectBox1 t_login_button"><a href="http://haipeng.me/wp-content/plugins/wp-connect/login.php?go=qzone" title="QQ空间" rel="nofollow"><img src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/btn_qzone.png"></a><a href="http://haipeng.me/wp-content/plugins/wp-connect/login.php?go=sina" title="新浪微博" rel="nofollow"><img src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/btn_sina.png"></a><a href="http://haipeng.me/wp-content/plugins/wp-connect/login.php?go=douban" title="豆瓣" rel="nofollow"><img src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/btn_douban.png"></a></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1563368483049"></form>
+			</div><!-- #respond -->
+	
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">文章导航</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://haipeng.me/2018/11/30/2018%e5%b9%b411%e6%9c%88%e5%b0%8f%e8%ae%b0/" rel="prev"><span class="meta-nav" aria-hidden="true">上一篇</span> <span class="screen-reader-text">上篇文章：</span> <span class="post-title">2018年11月小记</span></a></div><div class="nav-next"><a href="http://haipeng.me/2019/01/09/2018%e5%b9%b4%e5%b9%b4%e7%bb%88%e6%80%bb%e7%bb%93/" rel="next"><span class="meta-nav" aria-hidden="true">下一篇</span> <span class="screen-reader-text">下篇文章：</span> <span class="post-title">2018年年终总结</span></a></div></div>
+	</nav>
+	</main><!-- .site-main -->
+
+	
+</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="rss_links-2" class="widget widget_rss_links"><h2 class="widget-title">点我订阅RSS</h2><ul><li><a target="_self" href="http://haipeng.me/feed/" title="订阅 日志">RSS - 日志</a></li></ul>
+</section><section id="search-2" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="http://haipeng.me/">
+	<label>
+		<span class="screen-reader-text">搜索：</span>
+		<input type="search" class="search-field" placeholder="搜索…" value="" name="s">
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">搜索</span></button>
+</form>
+</section><section id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widget-title">标签</h2><div class="tagcloud"><ul class="wp-tag-cloud" role="list">
+	<li><a href="http://haipeng.me/tag/3d/" class="tag-cloud-link tag-link-35 tag-link-position-1" style="font-size: 1em;">3D</a></li>
+	<li><a href="http://haipeng.me/tag/arduino/" class="tag-cloud-link tag-link-23 tag-link-position-2" style="font-size: 1em;">Arduino</a></li>
+	<li><a href="http://haipeng.me/tag/cad/" class="tag-cloud-link tag-link-36 tag-link-position-3" style="font-size: 1em;">CAD</a></li>
+	<li><a href="http://haipeng.me/tag/emc/" class="tag-cloud-link tag-link-21 tag-link-position-4" style="font-size: 1em;">EMC</a></li>
+	<li><a href="http://haipeng.me/tag/i2c/" class="tag-cloud-link tag-link-24 tag-link-position-5" style="font-size: 1em;">I2C</a></li>
+	<li><a href="http://haipeng.me/tag/i%c2%b2c/" class="tag-cloud-link tag-link-25 tag-link-position-6" style="font-size: 1em;">I²C</a></li>
+	<li><a href="http://haipeng.me/tag/kicad/" class="tag-cloud-link tag-link-11 tag-link-position-7" style="font-size: 1em;">KiCad</a></li>
+	<li><a href="http://haipeng.me/tag/openvpn/" class="tag-cloud-link tag-link-33 tag-link-position-8" style="font-size: 1em;">OpenVPN</a></li>
+	<li><a href="http://haipeng.me/tag/pcb/" class="tag-cloud-link tag-link-18 tag-link-position-9" style="font-size: 1em;">PCB</a></li>
+	<li><a href="http://haipeng.me/tag/pi/" class="tag-cloud-link tag-link-31 tag-link-position-10" style="font-size: 1em;">Pi</a></li>
+	<li><a href="http://haipeng.me/tag/pivpn/" class="tag-cloud-link tag-link-32 tag-link-position-11" style="font-size: 1em;">PiVPN</a></li>
+	<li><a href="http://haipeng.me/tag/raspberry/" class="tag-cloud-link tag-link-30 tag-link-position-12" style="font-size: 1em;">Raspberry</a></li>
+	<li><a href="http://haipeng.me/tag/raspberry-pi/" class="tag-cloud-link tag-link-29 tag-link-position-13" style="font-size: 1em;">Raspberry Pi</a></li>
+	<li><a href="http://haipeng.me/tag/vpn/" class="tag-cloud-link tag-link-28 tag-link-position-14" style="font-size: 1em;">VPN</a></li>
+	<li><a href="http://haipeng.me/tag/%e4%b8%80%e5%b8%a6%e4%b8%80%e8%b7%af/" class="tag-cloud-link tag-link-19 tag-link-position-15" style="font-size: 1em;">一带一路</a></li>
+	<li><a href="http://haipeng.me/tag/%e4%b8%ad%e6%ac%a7%e7%8f%ad%e5%88%97/" class="tag-cloud-link tag-link-20 tag-link-position-16" style="font-size: 1em;">中欧班列</a></li>
+	<li><a href="http://haipeng.me/tag/%e4%bc%a0%e6%84%9f%e5%99%a8/" class="tag-cloud-link tag-link-26 tag-link-position-17" style="font-size: 1em;">传感器</a></li>
+	<li><a href="http://haipeng.me/tag/%e5%8f%b0%e6%b9%be/" class="tag-cloud-link tag-link-13 tag-link-position-18" style="font-size: 1em;">台湾</a></li>
+	<li><a href="http://haipeng.me/tag/%e6%94%bf%e6%b2%bb%e8%af%84%e8%ae%ba/" class="tag-cloud-link tag-link-14 tag-link-position-19" style="font-size: 1em;">政治评论</a></li>
+	<li><a href="http://haipeng.me/tag/%e6%95%99%e7%a8%8b/" class="tag-cloud-link tag-link-12 tag-link-position-20" style="font-size: 1em;">教程</a></li>
+	<li><a href="http://haipeng.me/tag/%e6%a0%91%e8%8e%93%e6%b4%be/" class="tag-cloud-link tag-link-27 tag-link-position-21" style="font-size: 1em;">树莓派</a></li>
+	<li><a href="http://haipeng.me/tag/%e7%94%b5%e7%a3%81%e5%85%bc%e5%ae%b9%e6%80%a7/" class="tag-cloud-link tag-link-22 tag-link-position-22" style="font-size: 1em;">电磁兼容性</a></li>
+	<li><a href="http://haipeng.me/tag/%e8%90%a8%e5%be%b7/" class="tag-cloud-link tag-link-17 tag-link-position-23" style="font-size: 1em;">萨德</a></li>
+</ul>
+</div>
+</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">近期文章</h2>		<ul>
+											<li>
+					<a href="http://haipeng.me/2019/01/19/how-to-select-mosfet/">如何正确选择MOSFET</a>
+									</li>
+											<li>
+					<a href="http://haipeng.me/2019/01/09/2018%e5%b9%b4%e5%b9%b4%e7%bb%88%e6%80%bb%e7%bb%93/">2018年年终总结</a>
+									</li>
+											<li>
+					<a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/">KiCad 层次原理图的使用方法</a>
+									</li>
+											<li>
+					<a href="http://haipeng.me/2018/11/30/2018%e5%b9%b411%e6%9c%88%e5%b0%8f%e8%ae%b0/">2018年11月小记</a>
+									</li>
+											<li>
+					<a href="http://haipeng.me/2018/10/25/2018%e5%b9%b410%e6%9c%88%e5%b0%8f%e8%ae%b0/">2018年10月小记</a>
+									</li>
+					</ul>
+		</section><section id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">近期评论</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">haipeng</span>发表在《<a href="http://haipeng.me/2017/03/01/kicad-tutorial/#comment-3696">使用KiCad制作PCB——零基础KiCad中文教程</a>》</li><li class="recentcomments"><span class="comment-author-link">小熙</span>发表在《<a href="http://haipeng.me/2017/03/01/kicad-tutorial/#comment-3695">使用KiCad制作PCB——零基础KiCad中文教程</a>》</li><li class="recentcomments"><span class="comment-author-link">11</span>发表在《<a href="http://haipeng.me/2018/04/06/kicad-export-step-3d-cad/#comment-3649">KiCad生成PCB .step格式3D机械CAD文件的方法</a>》</li><li class="recentcomments"><span class="comment-author-link">haipeng</span>发表在《<a href="http://haipeng.me/2017/12/12/raspberry-pi-vpn-remote-access/#comment-3631">使用树莓派Raspberry Pi搭建VPN并实现远程访问</a>》</li><li class="recentcomments"><span class="comment-author-link">事哒</span>发表在《<a href="http://haipeng.me/2017/12/12/raspberry-pi-vpn-remote-access/#comment-3628">使用树莓派Raspberry Pi搭建VPN并实现远程访问</a>》</li></ul></section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">文章归档</h2>		<ul>
+			<li><a href="http://haipeng.me/2019/01/">2019年一月</a></li>
+	<li><a href="http://haipeng.me/2018/12/">2018年十二月</a></li>
+	<li><a href="http://haipeng.me/2018/11/">2018年十一月</a></li>
+	<li><a href="http://haipeng.me/2018/10/">2018年十月</a></li>
+	<li><a href="http://haipeng.me/2018/09/">2018年九月</a></li>
+	<li><a href="http://haipeng.me/2018/08/">2018年八月</a></li>
+	<li><a href="http://haipeng.me/2018/07/">2018年七月</a></li>
+	<li><a href="http://haipeng.me/2018/06/">2018年六月</a></li>
+	<li><a href="http://haipeng.me/2018/05/">2018年五月</a></li>
+	<li><a href="http://haipeng.me/2018/04/">2018年四月</a></li>
+	<li><a href="http://haipeng.me/2018/03/">2018年三月</a></li>
+	<li><a href="http://haipeng.me/2018/01/">2018年一月</a></li>
+	<li><a href="http://haipeng.me/2017/12/">2017年十二月</a></li>
+	<li><a href="http://haipeng.me/2017/11/">2017年十一月</a></li>
+	<li><a href="http://haipeng.me/2017/10/">2017年十月</a></li>
+	<li><a href="http://haipeng.me/2017/09/">2017年九月</a></li>
+	<li><a href="http://haipeng.me/2017/08/">2017年八月</a></li>
+	<li><a href="http://haipeng.me/2017/07/">2017年七月</a></li>
+	<li><a href="http://haipeng.me/2017/05/">2017年五月</a></li>
+	<li><a href="http://haipeng.me/2017/04/">2017年四月</a></li>
+	<li><a href="http://haipeng.me/2017/03/">2017年三月</a></li>
+	<li><a href="http://haipeng.me/2017/02/">2017年二月</a></li>
+		</ul>
+		</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">分类目录</h2>		<ul>
+	<li class="cat-item cat-item-1"><a href="http://haipeng.me/category/blog/">博客</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://haipeng.me/category/politics/">政治评论</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://haipeng.me/category/daily/">生活</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://haipeng.me/category/electronics/">电子</a>
+</li>
+		</ul>
+</section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">功能</h2>			<ul>
+						<li><a href="http://haipeng.me/wp-login.php">登录</a></li>
+			<li><a href="http://haipeng.me/feed/">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://haipeng.me/comments/feed/">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>			</ul>
+			</section><section id="calendar-3" class="widget widget_calendar"><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>2018年十二月</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="星期一">一</th>
+		<th scope="col" title="星期二">二</th>
+		<th scope="col" title="星期三">三</th>
+		<th scope="col" title="星期四">四</th>
+		<th scope="col" title="星期五">五</th>
+		<th scope="col" title="星期六">六</th>
+		<th scope="col" title="星期日">日</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="http://haipeng.me/2018/11/">« 11月</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="http://haipeng.me/2019/01/">1月 »</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="5" class="pad">&nbsp;</td><td>1</td><td>2</td>
+	</tr>
+	<tr>
+		<td>3</td><td>4</td><td>5</td><td><a href="http://haipeng.me/2018/12/06/" aria-label="于2018年12月6日上发布的文章">6</a></td><td>7</td><td>8</td><td>9</td>
+	</tr>
+	<tr>
+		<td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+	</tr>
+	<tr>
+		<td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+	</tr>
+	<tr>
+		<td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+	</tr>
+	<tr>
+		<td>31</td>
+		<td class="pad" colspan="6">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></section><section id="google_translate_widget-3" class="widget widget_google_translate_widget"><h2 class="widget-title">Translation</h2><div id="google_translate_element"></div></section><section id="blog-stats-2" class="widget blog-stats"><h2 class="widget-title">博客统计</h2><ul><li>35,595 点击次数</li></ul></section><section id="text-2" class="widget widget_text"><h2 class="widget-title">权利声明</h2>			<div class="textwidget"><p>本教程/博文版权归 张海鹏 所有。禁止未经书面许可将本教程/博文用于商业目的。联系作者请发送电子邮件至contact@haipeng.me</p>
+<p>Copyright © 2017-2018 张海鹏 haipeng.me</p>
+</div>
+		</section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+							<nav class="main-navigation" role="navigation" aria-label="页脚主菜单">
+					<div class="menu-%e5%af%bc%e8%88%aa-container"><ul id="menu-%e5%af%bc%e8%88%aa-1" class="primary-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35" aria-haspopup="true"><a href="http://haipeng.me/about/">关于我</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-432" aria-haspopup="true"><a href="http://haipeng.me/cv/">Curriculum vitae</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-438"><a href="http://haipeng.me/cv/english-cv/">English CV</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47"><a href="http://haipeng.me/contact/">联系方式</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-38" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">KiCad相关</a><button class="dropdown-toggle toggled-on" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu toggled-on">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-428"><a href="http://haipeng.me/2017/03/01/kicad-tutorial/">使用KiCad制作PCB——零基础KiCad中文教程</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-571"><a href="http://haipeng.me/2018/05/24/kicad_advanced_tutorial_1_new_component/">KiCad进阶中文教程（一）：添加新元件</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-609"><a href="http://haipeng.me/2018/07/11/kicad_advanced_tutorial_2_new_logo/">KiCad进阶中文教程（二）：在电路板上放置自己的Logo</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-521"><a href="http://haipeng.me/2018/04/06/kicad-export-step-3d-cad/">KiCad生成PCB .step格式3D机械CAD文件的方法</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-425"><a href="http://haipeng.me/2017/08/28/emc-guidelines/">电磁兼容性（EMC）设计指南</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-426"><a href="http://haipeng.me/2017/08/21/emc-pcb-layout/">电磁兼容性(EMC)教程——PCB布局</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-424"><a href="http://haipeng.me/2017/09/04/kicad-pcbnew-layer/">KiCad里Pcbnew中各层的使用说明</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-422"><a href="http://haipeng.me/2017/11/18/kicad-qa/">KiCad使用Q&amp;A——我的工程师手记</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-501"><a href="http://haipeng.me/2018/03/13/kicad-tips-snapeda/">KiCad使用小窍门：利用SnapEda轻松找到元件symbol, footprint和3D模型</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-427"><a href="http://haipeng.me/2017/05/30/kicad-xlsx-bom/">KiCad生成xlsx格式的BOM教程</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-676"><a href="http://haipeng.me/2018/12/06/kicad-hierarchical-sheet/">KiCad 层次原理图的使用方法</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-638"><a href="http://haipeng.me/2018/09/18/two-ways-from-altium-files-to-kicad-files/">Altium文件转成KiCad文件的两种方法</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-495" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">树莓派相关</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-498"><a href="http://haipeng.me/2017/12/12/raspberry-pi-vpn-remote-access/">使用树莓派Raspberry Pi搭建VPN并实现远程访问</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-497"><a href="http://haipeng.me/2017/12/18/pivpn-dynamic-ip-dns/">为PiVPN设置动态IP的DNS解析</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-499" aria-haspopup="true"><a href="http://haipeng.me/category/electronics/">电子设计</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">展开子菜单</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-500"><a href="http://haipeng.me/2018/03/08/electronic-design-note/">张海鹏的电子设计笔记</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="http://haipeng.me/2017/10/31/thermostat_with_arduino_micro_via_i2c/">I²C实用教学：基于Arduino Micro的温度传感器</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-695"><a href="http://haipeng.me/2019/01/19/how-to-select-mosfet/">如何正确选择MOSFET</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41"><a href="http://haipeng.me/category/blog/">博客</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-36"><a href="http://haipeng.me/category/politics/">政治评论</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-39"><a href="http://haipeng.me/category/daily/">生活</a></li>
+</ul></div>				</nav><!-- .main-navigation -->
+			
+							<nav class="social-navigation" role="navigation" aria-label="页脚社交链接菜单">
+					<div class="menu-%e7%a4%be%e4%ba%a4%e7%bd%91%e7%bb%9c%e4%b8%aa%e4%ba%ba%e4%b8%bb%e9%a1%b5-container"><ul id="menu-%e7%a4%be%e4%ba%a4%e7%bd%91%e7%bb%9c%e4%b8%aa%e4%ba%ba%e4%b8%bb%e9%a1%b5-1" class="social-links-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30"><a href="https://www.linkedin.com/in/haipeng-zhang/"><span class="screen-reader-text">张海鹏的领英</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31"><a href="https://www.facebook.com/HaipengInFrance"><span class="screen-reader-text">张海鹏的Facebook</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32"><a href="http://weibo.com/uuwomanizer/"><span class="screen-reader-text">张海鹏的微博</span></a></li>
+</ul></div>				</nav><!-- .social-navigation -->
+			
+			<div class="site-info">
+								<span class="site-title"><a href="http://haipeng.me/" rel="home">张海鹏的个人网站</a></span>
+								<a href="https://cn.wordpress.org/" class="imprint">
+					自豪地采用WordPress				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+
+
+
+    <div id="wpfront-scroll-top-container" style="opacity: 0.8; right: 20px; bottom: 20px; display: block;">
+        <img src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/58.png" alt="" style="width: auto; height: auto;">    </div>
+    <script type="text/javascript">function wpfront_scroll_top_init() {if(typeof wpfront_scroll_top == "function" && typeof jQuery !== "undefined") {wpfront_scroll_top({"scroll_offset":100,"button_width":0,"button_height":0,"button_opacity":0.8,"button_fade_duration":200,"scroll_duration":400,"location":1,"marginX":20,"marginY":20,"hide_iframe":false,"auto_hide":false,"auto_hide_after":2,"button_action":"top","button_action_element_selector":"","button_action_container_selector":"html, body","button_action_element_offset":0});} else {setTimeout(wpfront_scroll_top_init, 100);}}wpfront_scroll_top_init();</script>	<div style="display:none">
+	<div class="grofile-hash-map-728410102c6a8198ef49280cc67547a2">
+	</div>
+	<div class="grofile-hash-map-332ce6d32b6a6323ded442e5a296ca04">
+	</div>
+	<div class="grofile-hash-map-728410102c6a8198ef49280cc67547a2">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/haipeng.me\/2018\/12\/06\/kicad-hierarchical-sheet\/":655};
+	</script>
+				<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='http://haipeng.me/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/photon.min.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/wpfront-scroll-top.min.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/wpgroho.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/skip-link-focus-fix.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/comment-reply.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"\u5c55\u5f00\u5b50\u83dc\u5355","collapse":"\u6298\u53e0\u5b50\u83dc\u5355"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/functions.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/lazy-images.min.js"></script>
+<script type="text/javascript">
+jQuery( document.body ).on( 'jetpack-lazy-loaded-image', function () { jQuery( window ).trigger( 'resize' ); } );
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/wp-embed.min.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/spin.min.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jquery.spin.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"zh","ajaxurl":"http:\/\/haipeng.me\/wp-admin\/admin-ajax.php","nonce":"63a086cc9b","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"\u6761\u8bc4\u8bba","post_comment":"\u53d1\u8868\u8bc4\u8bba","write_comment":"\u64b0\u5199\u8bc4\u8bba...","loading_comments":"\u6b63\u5728\u52a0\u8f7d\u8bc4\u8bba...","download_original":"\u67e5\u770b\u5168\u5c3a\u5bf8 <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"\u8bf7\u786e\u4fdd\u4e0e\u60a8\u7684\u8bc4\u8bba\u4e00\u8d77\u63d0\u4ea4\u90e8\u5206\u6587\u672c\u3002","no_comment_email":"\u8bf7\u63d0\u4f9b\u7528\u4e8e\u53d1\u8868\u8bc4\u8bba\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740\u3002","no_comment_author":"\u8bf7\u63d0\u4f9b\u60a8\u7528\u4e8e\u53d1\u8868\u8bc4\u8bba\u7684\u59d3\u540d\u3002","comment_post_error":"\u62b1\u6b49\uff0c\u53d1\u8868\u60a8\u7684\u8bc4\u8bba\u65f6\u51fa\u9519\u3002\u8bf7\u7a0d\u540e\u91cd\u8bd5\u3002","comment_approved":"\u60a8\u7684\u8bc4\u8bba\u5df2\u83b7\u5f97\u6279\u51c6\u3002","comment_unapproved":"\u6b63\u5728\u5ba1\u6838\u60a8\u7684\u8bc4\u8bba\u3002","camera":"\u7167\u76f8\u673a","aperture":"\u5149\u5708","shutter_speed":"\u5feb\u95e8\u901f\u5ea6","focal_length":"\u7126\u8ddd","copyright":"\u7248\u6743","comment_registration":"0","require_name_email":"1","login_url":"http:\/\/haipeng.me\/wp-login.php?redirect_to=http%3A%2F%2Fhaipeng.me%2F2018%2F12%2F06%2Fkicad-hierarchical-sheet%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">\u7535\u5b50\u90ae\u7bb1\uff08\u5fc5\u586b\uff09<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">\u540d\u79f0\uff08\u5fc5\u586b\uff09<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">\u7f51\u5740<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/jetpack-carousel.min.js"></script>
+<script async="async" type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/form.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wp_google_translate_widget = {"lang":"zh_CN","layout":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/google-translate.min.js"></script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/f.txt"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/sharing.min.js"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+</script>
+<script type="text/javascript" src="./KiCad 层次原理图的使用方法 – 张海鹏的个人网站_files/e-201929.js" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:6.8.1',blog:'124610332',post:'655',tz:'8',srv:'haipeng.me'} ]);
+	_stq.push([ 'clickTrackerInit', '124610332', '655' ]);
+</script>
+
+
+</body></html>

@@ -1,0 +1,396 @@
+EESchema Schematic File Version 4
+LIBS:Power_Source-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ESP32:ESP32-WROOM U?
+U 1 1 5D306848
+P 5650 4000
+F 0 "U?" H 5625 5387 60  0000 C CNN
+F 1 "ESP32-WROOM" H 5625 5281 60  0000 C CNN
+F 2 "ESP32:ESP32-WROOM" H 6000 5350 60  0001 C CNN
+F 3 "" H 5200 4450 60  0001 C CNN
+	1    5650 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L POWER:+3V3 #PWR?
+U 1 1 5D30684E
+P 4150 3150
+F 0 "#PWR?" H 4150 3000 50  0001 C CNN
+F 1 "+3V3" H 4165 3323 50  0000 C CNN
+F 2 "" H 4150 3150 50  0001 C CNN
+F 3 "" H 4150 3150 50  0001 C CNN
+	1    4150 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L POWER:GND #PWR?
+U 1 1 5D306854
+P 6800 4750
+F 0 "#PWR?" H 6800 4500 50  0001 C CNN
+F 1 "GND" H 6805 4577 50  0000 C CNN
+F 2 "" H 6800 4750 50  0001 C CNN
+F 3 "" H 6800 4750 50  0001 C CNN
+	1    6800 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 4750 6800 4650
+Wire Wire Line
+	6800 4650 6550 4650
+Wire Wire Line
+	6550 4550 6800 4550
+Wire Wire Line
+	6800 4550 6800 4650
+Connection ~ 6800 4650
+$Comp
+L Device:R R?
+U 1 1 5D30685F
+P 4300 3500
+F 0 "R?" V 4093 3500 50  0000 C CNN
+F 1 "10K" V 4184 3500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4230 3500 50  0001 C CNN
+F 3 "" H 4300 3500 50  0001 C CNN
+	1    4300 3500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4450 3500 4700 3500
+$Comp
+L POWER:GND #PWR?
+U 1 1 5D306866
+P 4200 4750
+F 0 "#PWR?" H 4200 4500 50  0001 C CNN
+F 1 "GND" H 4205 4577 50  0000 C CNN
+F 2 "" H 4200 4750 50  0001 C CNN
+F 3 "" H 4200 4750 50  0001 C CNN
+	1    4200 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 3150 4150 3400
+Wire Wire Line
+	4150 3400 4700 3400
+Connection ~ 4150 3400
+Wire Wire Line
+	4150 3400 4150 3500
+Wire Wire Line
+	4200 4700 4200 4750
+Wire Wire Line
+	4200 4700 4500 4700
+$Comp
+L Device:R R?
+U 1 1 5D306872
+P 6950 4450
+F 0 "R?" V 6743 4450 50  0000 C CNN
+F 1 "10K" V 6834 4450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 6880 4450 50  0001 C CNN
+F 3 "" H 6950 4450 50  0001 C CNN
+	1    6950 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6800 4450 6550 4450
+$Comp
+L POWER:+3V3 #PWR?
+U 1 1 5D306879
+P 7100 4250
+F 0 "#PWR?" H 7100 4100 50  0001 C CNN
+F 1 "+3V3" H 7115 4423 50  0000 C CNN
+F 2 "" H 7100 4250 50  0001 C CNN
+F 3 "" H 7100 4250 50  0001 C CNN
+	1    7100 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 4250 7100 4450
+Text HLabel 8450 2650 2    50   Output ~ 0
+TXD
+Text HLabel 8450 2750 2    50   Input ~ 0
+RXD
+Text Label 6800 3550 2    50   ~ 0
+RXD
+Text Label 6800 4450 2    50   ~ 0
+GPIO0
+Wire Wire Line
+	6550 3450 6800 3450
+Wire Wire Line
+	6550 3550 6800 3550
+Wire Wire Line
+	6550 3250 6800 3250
+Wire Wire Line
+	6550 3350 6800 3350
+Wire Wire Line
+	6550 3650 6800 3650
+Wire Wire Line
+	6550 3850 6800 3850
+Wire Wire Line
+	6550 3950 6800 3950
+Wire Wire Line
+	6550 4050 6800 4050
+Wire Wire Line
+	6550 4150 6800 4150
+Wire Wire Line
+	6550 4250 6800 4250
+Wire Wire Line
+	6550 4350 6800 4350
+Wire Wire Line
+	4700 4600 4350 4600
+Wire Wire Line
+	4700 4500 4350 4500
+Wire Wire Line
+	4700 4400 4350 4400
+Wire Wire Line
+	4700 4300 4350 4300
+Wire Wire Line
+	4700 4200 4350 4200
+Wire Wire Line
+	4700 4100 4350 4100
+Wire Wire Line
+	4700 4000 4350 4000
+Wire Wire Line
+	4700 3900 4350 3900
+Wire Wire Line
+	4700 3800 4350 3800
+Wire Wire Line
+	4700 3700 4350 3700
+Wire Wire Line
+	4700 3600 4350 3600
+Text Label 6800 3250 2    50   ~ 0
+GPIO23
+Text Label 6800 3350 2    50   ~ 0
+GPIO22
+Text Label 6800 3650 2    50   ~ 0
+GPIO21
+Text Label 6800 3950 2    50   ~ 0
+GPIO18
+Text Label 6800 4050 2    50   ~ 0
+GPIO5
+Text Label 6800 4150 2    50   ~ 0
+GPIO17
+Text Label 6800 4250 2    50   ~ 0
+GPIO16
+Text Label 6800 4350 2    50   ~ 0
+GPIO4
+Text Label 4350 4600 0    50   ~ 0
+GPIO12
+Text Label 4350 4500 0    50   ~ 0
+GPIO14
+Text Label 4350 4400 0    50   ~ 0
+GPIO27
+Text Label 4350 4300 0    50   ~ 0
+GPIO26
+Text Label 4350 4200 0    50   ~ 0
+GPIO25
+Text Label 4350 4100 0    50   ~ 0
+GPIO33
+Text Label 4350 4000 0    50   ~ 0
+GPIO32
+Text Label 4350 3900 0    50   ~ 0
+GPI35
+Text Label 4350 3800 0    50   ~ 0
+GPI34
+Text Label 4350 3600 0    50   ~ 0
+GPI36
+Text Label 4350 3700 0    50   ~ 0
+GPI39
+Wire Wire Line
+	5200 5050 4500 5050
+Wire Wire Line
+	4500 5050 4500 4700
+Connection ~ 4500 4700
+Wire Wire Line
+	4500 4700 4700 4700
+Wire Wire Line
+	5300 5050 5300 5350
+Wire Wire Line
+	6000 5050 6000 5350
+Wire Wire Line
+	6100 5050 6100 5350
+Text Label 5300 5350 1    50   ~ 0
+GPIO13
+Text Label 6000 5350 1    50   ~ 0
+GPIO15
+Text Label 6100 5350 1    50   ~ 0
+GPIO2
+Text Label 6800 3450 2    50   ~ 0
+TXD
+Text Label 6800 3850 2    50   ~ 0
+GPIO19
+Wire Wire Line
+	8450 2650 8050 2650
+Wire Wire Line
+	8450 2750 8050 2750
+Wire Wire Line
+	8050 2850 8450 2850
+Wire Wire Line
+	8050 2950 8450 2950
+Text Label 8050 2650 0    50   ~ 0
+TXD
+Text Label 8050 2750 0    50   ~ 0
+RXD
+Text Label 8050 2850 0    50   ~ 0
+EN
+Text Label 8050 2950 0    50   ~ 0
+GPIO0
+Text Label 4450 3500 0    50   ~ 0
+EN
+Text HLabel 8450 2850 2    50   Input ~ 0
+EN
+Text HLabel 8450 2950 2    50   BiDi ~ 0
+GPIO0
+Wire Wire Line
+	8050 3250 8450 3250
+Wire Wire Line
+	8050 3350 8450 3350
+Wire Wire Line
+	8050 3450 8450 3450
+Wire Wire Line
+	8050 3550 8450 3550
+Wire Wire Line
+	8050 3650 8450 3650
+Wire Wire Line
+	8050 3750 8450 3750
+Wire Wire Line
+	8050 3850 8450 3850
+Wire Wire Line
+	8050 3950 8450 3950
+Wire Wire Line
+	8050 4050 8450 4050
+Wire Wire Line
+	8050 4150 8450 4150
+Wire Wire Line
+	8050 4250 8450 4250
+Wire Wire Line
+	8050 4350 8450 4350
+Text Label 8050 3250 0    50   ~ 0
+GPIO2
+Text Label 8050 3350 0    50   ~ 0
+GPIO4
+Text Label 8050 3450 0    50   ~ 0
+GPIO5
+Text Label 8050 3550 0    50   ~ 0
+GPIO12
+Text Label 8050 3650 0    50   ~ 0
+GPIO13
+Text Label 8050 3750 0    50   ~ 0
+GPIO14
+Text Label 8050 3850 0    50   ~ 0
+GPIO16
+Text Label 8050 3950 0    50   ~ 0
+GPIO17
+Text Label 8050 4050 0    50   ~ 0
+GPIO18
+Text Label 8050 4150 0    50   ~ 0
+GPIO19
+Text Label 8050 4250 0    50   ~ 0
+GPIO21
+Text Label 8050 4350 0    50   ~ 0
+GPIO22
+Wire Wire Line
+	8050 4450 8450 4450
+Wire Wire Line
+	8050 4550 8450 4550
+Wire Wire Line
+	8050 4650 8450 4650
+Wire Wire Line
+	8050 4750 8450 4750
+Wire Wire Line
+	8050 4850 8450 4850
+Wire Wire Line
+	8050 4950 8450 4950
+Text Label 8050 4450 0    50   ~ 0
+GPIO23
+Text Label 8050 4550 0    50   ~ 0
+GPIO25
+Text Label 8050 4650 0    50   ~ 0
+GPIO26
+Text Label 8050 4750 0    50   ~ 0
+GPIO27
+Text Label 8050 4850 0    50   ~ 0
+GPIO32
+Text Label 8050 4950 0    50   ~ 0
+GPIO33
+Wire Wire Line
+	8050 5050 8450 5050
+Wire Wire Line
+	8050 5150 8450 5150
+Wire Wire Line
+	8050 5250 8450 5250
+Wire Wire Line
+	8050 5350 8450 5350
+Text Label 8050 5050 0    50   ~ 0
+GPI34
+Text Label 8050 5150 0    50   ~ 0
+GPI35
+Text Label 8050 5250 0    50   ~ 0
+GPI36
+Text Label 8050 5350 0    50   ~ 0
+GPI39
+Text HLabel 8450 3250 2    50   BiDi ~ 0
+GPIO2
+Text HLabel 8450 3350 2    50   BiDi ~ 0
+GPIO4
+Text HLabel 8450 3450 2    50   BiDi ~ 0
+GPIO5
+Text HLabel 8450 3550 2    50   BiDi ~ 0
+GPIO12
+Text HLabel 8450 3650 2    50   BiDi ~ 0
+GPIO13
+Text HLabel 8450 3750 2    50   BiDi ~ 0
+GPIO14
+Text HLabel 8450 3850 2    50   BiDi ~ 0
+GPIO16
+Text HLabel 8450 3950 2    50   BiDi ~ 0
+GPIO17
+Text HLabel 8450 4050 2    50   BiDi ~ 0
+GPIO18
+Text HLabel 8450 4150 2    50   BiDi ~ 0
+GPIO19
+Text HLabel 8450 4250 2    50   BiDi ~ 0
+GPIO21
+Text HLabel 8450 4350 2    50   BiDi ~ 0
+GPIO22
+Text HLabel 8450 4450 2    50   BiDi ~ 0
+GPIO23
+Text HLabel 8450 4550 2    50   BiDi ~ 0
+GPIO25
+Text HLabel 8450 4650 2    50   BiDi ~ 0
+GPIO26
+Text HLabel 8450 4750 2    50   BiDi ~ 0
+GPIO27
+Text HLabel 8450 4850 2    50   BiDi ~ 0
+GPIO32
+Text HLabel 8450 4950 2    50   BiDi ~ 0
+GPIO33
+Text HLabel 8450 5050 2    50   Input ~ 0
+GPI34
+Text HLabel 8450 5150 2    50   Input ~ 0
+GPI35
+Text HLabel 8450 5250 2    50   Input ~ 0
+GPI36
+Text HLabel 8450 5350 2    50   Input ~ 0
+GPI39
+Wire Wire Line
+	4150 3400 3700 3400
+Wire Wire Line
+	4200 4700 3700 4700
+Connection ~ 4200 4700
+Text HLabel 3700 3400 0    50   Input ~ 0
++3V3
+Text HLabel 3700 4700 0    50   Output ~ 0
+GND
+$EndSCHEMATC
