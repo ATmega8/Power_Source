@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
+Sheet 4 6
 Title ""
 Date ""
 Rev ""
@@ -178,79 +178,41 @@ Wire Wire Line
 Text Label 5850 3450 0    50   ~ 0
 BLK
 Wire Wire Line
-	8000 2500 8500 2500
+	7750 3150 8250 3150
 Wire Wire Line
-	8000 2600 8500 2600
+	7750 3250 8250 3250
 Wire Wire Line
-	8000 2700 8500 2700
+	7750 3350 8250 3350
 Wire Wire Line
-	8000 2800 8500 2800
+	7750 3450 8250 3450
 Wire Wire Line
-	8000 2900 8500 2900
+	7750 3550 8250 3550
 Wire Wire Line
-	8000 3000 8500 3000
-Text Label 8000 2500 0    50   ~ 0
+	7750 3650 8250 3650
+Text Label 7750 3150 0    50   ~ 0
 SCL
-Text Label 8000 2600 0    50   ~ 0
+Text Label 7750 3250 0    50   ~ 0
 SDA
-Text Label 8000 2700 0    50   ~ 0
+Text Label 7750 3350 0    50   ~ 0
 DC
-Text Label 8000 2800 0    50   ~ 0
+Text Label 7750 3450 0    50   ~ 0
 RES
-Text Label 8000 2900 0    50   ~ 0
+Text Label 7750 3550 0    50   ~ 0
 CS
-Text Label 8000 3000 0    50   ~ 0
+Text Label 7750 3650 0    50   ~ 0
 BLK
-Text HLabel 8500 2500 2    50   Input ~ 0
+Text HLabel 8250 3150 2    50   Input ~ 0
 SCL
-Text HLabel 8500 2600 2    50   Input ~ 0
+Text HLabel 8250 3250 2    50   Input ~ 0
 SDA
-Text HLabel 8500 2700 2    50   Input ~ 0
+Text HLabel 8250 3350 2    50   Input ~ 0
 DC
-Text HLabel 8500 2800 2    50   Input ~ 0
+Text HLabel 8250 3450 2    50   Input ~ 0
 RES
-Text HLabel 8500 2900 2    50   Input ~ 0
+Text HLabel 8250 3550 2    50   Input ~ 0
 CS
-Text HLabel 8500 3000 2    50   Input ~ 0
+Text HLabel 8250 3650 2    50   Input ~ 0
 BLK
-$Comp
-L Power_Source-rescue:+3V3-POWER #PWR?
-U 1 1 5D318094
-P 7750 3100
-AR Path="/5D2F5414/5D318094" Ref="#PWR?"  Part="1" 
-AR Path="/5D31AE1A/5D318094" Ref="#PWR020"  Part="1" 
-F 0 "#PWR020" H 7750 2950 50  0001 C CNN
-F 1 "+3V3" H 7765 3273 50  0000 C CNN
-F 2 "" H 7750 3100 50  0001 C CNN
-F 3 "" H 7750 3100 50  0001 C CNN
-	1    7750 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Power_Source-rescue:GND-POWER #PWR?
-U 1 1 5D355610
-P 7750 3600
-AR Path="/5D2F5414/5D355610" Ref="#PWR?"  Part="1" 
-AR Path="/5D31AE1A/5D355610" Ref="#PWR021"  Part="1" 
-F 0 "#PWR021" H 7750 3350 50  0001 C CNN
-F 1 "GND" H 7755 3427 50  0000 C CNN
-F 2 "" H 7750 3600 50  0001 C CNN
-F 3 "" H 7750 3600 50  0001 C CNN
-	1    7750 3600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7750 3100 7750 3300
-Wire Wire Line
-	7750 3300 8500 3300
-Wire Wire Line
-	7750 3400 7750 3600
-Wire Wire Line
-	7750 3400 8500 3400
-Text HLabel 8500 3300 2    50   Input ~ 0
-+3V3
-Text HLabel 8500 3400 2    50   Output ~ 0
-GND
 $Comp
 L LCD:IPS1.14'240x135 LCD2
 U 1 1 5D31C154

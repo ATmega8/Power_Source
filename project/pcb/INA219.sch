@@ -1,0 +1,201 @@
+EESchema Schematic File Version 4
+LIBS:Power_Source-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Power_Source-rescue:INA219-INA219 U?
+U 1 1 5D354B61
+P 5300 3600
+AR Path="/5D354B61" Ref="U?"  Part="1" 
+AR Path="/5D35190C/5D354B61" Ref="U3"  Part="1" 
+F 0 "U3" H 5525 3775 50  0000 C CNN
+F 1 "INA219" H 5525 3684 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-8" H 5350 3650 50  0001 C CNN
+F 3 "http://www.ti.com/cn/lit/ds/symlink/ina219.pdf" H 5350 3650 50  0001 C CNN
+	1    5300 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Pack04 RN1
+U 1 1 5D355B17
+P 4800 3850
+F 0 "RN1" V 4383 3850 50  0000 C CNN
+F 1 "10K" V 4474 3850 50  0000 C CNN
+F 2 "Resistor_SMD:R_Array_Concave_4x0402" V 5075 3850 50  0001 C CNN
+F 3 "~" H 4800 3850 50  0001 C CNN
+	1    4800 3850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5000 3650 5200 3650
+Wire Wire Line
+	5000 3750 5200 3750
+Wire Wire Line
+	5000 3850 5200 3850
+Wire Wire Line
+	5000 3950 5200 3950
+$Comp
+L power:GND #PWR0101
+U 1 1 5D357D6B
+P 4350 3700
+F 0 "#PWR0101" H 4350 3450 50  0001 C CNN
+F 1 "GND" V 4355 3572 50  0000 R CNN
+F 2 "" H 4350 3700 50  0001 C CNN
+F 3 "" H 4350 3700 50  0001 C CNN
+	1    4350 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4600 3650 4500 3650
+Wire Wire Line
+	4500 3650 4500 3700
+Wire Wire Line
+	4500 3750 4600 3750
+Wire Wire Line
+	4350 3700 4500 3700
+Connection ~ 4500 3700
+Wire Wire Line
+	4500 3700 4500 3750
+Text Label 5000 3850 0    50   ~ 0
+SDA
+Text Label 5000 3950 0    50   ~ 0
+SCL
+$Comp
+L power:+3V3 #PWR0102
+U 1 1 5D359581
+P 4350 3900
+F 0 "#PWR0102" H 4350 3750 50  0001 C CNN
+F 1 "+3V3" V 4365 4028 50  0000 L CNN
+F 2 "" H 4350 3900 50  0001 C CNN
+F 3 "" H 4350 3900 50  0001 C CNN
+	1    4350 3900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 3850 4500 3850
+Wire Wire Line
+	4500 3850 4500 3900
+Wire Wire Line
+	4500 3950 4600 3950
+Wire Wire Line
+	4350 3900 4500 3900
+Connection ~ 4500 3900
+Wire Wire Line
+	4500 3900 4500 3950
+$Comp
+L Device:R R10
+U 1 1 5D35AB8C
+P 6300 3700
+F 0 "R10" H 6370 3746 50  0000 L CNN
+F 1 "0.1" H 6370 3655 50  0000 L CNN
+F 2 "Resistor_SMD:R_2512_6332Metric" V 6230 3700 50  0001 C CNN
+F 3 "~" H 6300 3700 50  0001 C CNN
+	1    6300 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3750 6150 3750
+Wire Wire Line
+	6150 3750 6150 3850
+Wire Wire Line
+	6150 3850 6300 3850
+Wire Wire Line
+	5850 3650 6150 3650
+Wire Wire Line
+	6150 3650 6150 3550
+Wire Wire Line
+	6150 3550 6300 3550
+$Comp
+L power:+3V3 #PWR0105
+U 1 1 5D35C912
+P 5850 4200
+F 0 "#PWR0105" H 5850 4050 50  0001 C CNN
+F 1 "+3V3" H 5865 4373 50  0000 C CNN
+F 2 "" H 5850 4200 50  0001 C CNN
+F 3 "" H 5850 4200 50  0001 C CNN
+	1    5850 4200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 5D35D575
+P 6150 4200
+F 0 "#PWR0106" H 6150 3950 50  0001 C CNN
+F 1 "GND" H 6155 4027 50  0000 C CNN
+F 2 "" H 6150 4200 50  0001 C CNN
+F 3 "" H 6150 4200 50  0001 C CNN
+	1    6150 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C8
+U 1 1 5D35D8C0
+P 6000 4150
+F 0 "C8" V 5771 4150 50  0000 C CNN
+F 1 "0.1uF" V 5862 4150 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6000 4150 50  0001 C CNN
+F 3 "~" H 6000 4150 50  0001 C CNN
+	1    6000 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5850 4200 5850 4150
+Wire Wire Line
+	5850 4150 5900 4150
+Wire Wire Line
+	6150 4200 6150 4150
+Wire Wire Line
+	6150 4150 6100 4150
+Wire Wire Line
+	5850 4150 5850 3950
+Connection ~ 5850 4150
+Wire Wire Line
+	5850 3850 6100 3850
+Wire Wire Line
+	6100 3850 6100 3950
+Wire Wire Line
+	6100 3950 6150 3950
+Wire Wire Line
+	6150 3950 6150 4150
+Connection ~ 6150 4150
+Text Label 5900 3650 0    50   ~ 0
+VIN+
+Text Label 5900 3750 0    50   ~ 0
+VIN-
+Wire Wire Line
+	6700 3600 7200 3600
+Wire Wire Line
+	6700 3700 7200 3700
+Wire Wire Line
+	6700 3900 7200 3900
+Wire Wire Line
+	6700 4000 7200 4000
+Text Label 6700 3600 0    50   ~ 0
+VIN+
+Text Label 6700 3700 0    50   ~ 0
+VIN-
+Text Label 6700 3900 0    50   ~ 0
+SCL
+Text Label 6700 4000 0    50   ~ 0
+SDA
+Text HLabel 7200 3600 2    50   Input ~ 0
+VIN+
+Text HLabel 7200 3700 2    50   Input ~ 0
+VIN-
+Text HLabel 7200 3900 2    50   BiDi ~ 0
+SCL
+Text HLabel 7200 4000 2    50   BiDi ~ 0
+SDA
+$EndSCHEMATC

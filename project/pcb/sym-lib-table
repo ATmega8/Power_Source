@@ -193,4 +193,5 @@
   (lib (name Valve)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Valve.lib)(options "")(descr ""))
   (lib (name Video)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Video.lib)(options "")(descr ""))
   (lib (name Power_Source-rescue)(type Legacy)(uri ${KIPRJMOD}/Power_Source-rescue.lib)(options "")(descr ""))
+  (lib (name INA219)(type Legacy)(uri ${KIPRJMOD}/library/INA219.lib)(options "")(descr ""))
 )

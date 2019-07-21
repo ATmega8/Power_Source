@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 5
+Sheet 2 6
 Title ""
 Date ""
 Rev ""
@@ -328,10 +328,6 @@ Text HLabel 8450 5250 2    50   Input ~ 0
 GPI36
 Text HLabel 8450 5350 2    50   Input ~ 0
 GPI39
-Text HLabel 3700 3400 0    50   Input ~ 0
-+3V3
-Text HLabel 3700 4700 0    50   Output ~ 0
-GND
 $Comp
 L Power_Source-rescue:+3V3-POWER #PWR05
 U 1 1 5D306879
@@ -358,10 +354,7 @@ F 3 "" H 6800 4750 50  0001 C CNN
 $EndComp
 Connection ~ 4500 4700
 Wire Wire Line
-	4200 4700 3700 4700
-Wire Wire Line
 	4200 4700 4500 4700
-Connection ~ 4200 4700
 Wire Wire Line
 	4200 4700 4200 4750
 $Comp
@@ -402,9 +395,6 @@ F 3 "~" H 3900 3700 50  0001 C CNN
 	1    3900 3700
 	1    0    0    -1  
 $EndComp
-Connection ~ 3900 3400
-Wire Wire Line
-	3900 3400 3700 3400
 $Comp
 L Power_Source-rescue:GND-POWER #PWR01
 U 1 1 5D32C894

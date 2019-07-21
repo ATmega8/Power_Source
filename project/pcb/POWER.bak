@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -19,8 +19,8 @@ L Power_Source-rescue:AMS1117-LDO U2
 U 1 1 5D34CC59
 P 5200 3450
 AR Path="/5D34CC59" Ref="U2"  Part="1" 
-AR Path="/5D349331/5D34CC59" Ref="U"  Part="1" 
-F 0 "U" H 5450 3965 50  0000 C CNN
+AR Path="/5D349331/5D34CC59" Ref="U2"  Part="1" 
+F 0 "U2" H 5450 3965 50  0000 C CNN
 F 1 "AMS1117-LDO" H 5450 3874 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 5200 3850 50  0001 C CNN
 F 3 "" H 5200 3850 50  0001 C CNN
@@ -72,12 +72,6 @@ F 3 "" H 6300 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6300 3050 6300 3200
-Text HLabel 4650 3200 0    50   Input ~ 0
-VCC
-Text HLabel 6300 3200 2    50   Output ~ 0
-+3V3
-Text HLabel 5450 3750 2    50   Output ~ 0
-GND
 $Comp
 L Device:C_Small C4
 U 1 1 5D34E8D1

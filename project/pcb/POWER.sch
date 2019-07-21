@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -72,12 +72,6 @@ F 3 "" H 6300 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6300 3050 6300 3200
-Text HLabel 4650 3200 0    50   Input ~ 0
-VCC
-Text HLabel 6300 3200 2    50   Output ~ 0
-+3V3
-Text HLabel 5450 3750 2    50   Output ~ 0
-GND
 $Comp
 L Device:C_Small C4
 U 1 1 5D34E8D1
