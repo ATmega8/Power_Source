@@ -333,7 +333,7 @@ Text HLabel 3700 3400 0    50   Input ~ 0
 Text HLabel 3700 4700 0    50   Output ~ 0
 GND
 $Comp
-L POWER:+3V3 #PWR05
+L Power_Source-rescue:+3V3-POWER #PWR05
 U 1 1 5D306879
 P 7100 4250
 F 0 "#PWR05" H 7100 4100 50  0001 C CNN
@@ -346,7 +346,7 @@ $EndComp
 Wire Wire Line
 	6800 4750 6800 4650
 $Comp
-L POWER:GND #PWR04
+L Power_Source-rescue:GND-POWER #PWR04
 U 1 1 5D306854
 P 6800 4750
 F 0 "#PWR04" H 6800 4500 50  0001 C CNN
@@ -365,7 +365,7 @@ Connection ~ 4200 4700
 Wire Wire Line
 	4200 4700 4200 4750
 $Comp
-L POWER:GND #PWR03
+L Power_Source-rescue:GND-POWER #PWR03
 U 1 1 5D306866
 P 4200 4750
 F 0 "#PWR03" H 4200 4500 50  0001 C CNN
@@ -381,7 +381,7 @@ Wire Wire Line
 Wire Wire Line
 	4150 3150 4150 3400
 $Comp
-L POWER:+3V3 #PWR02
+L Power_Source-rescue:+3V3-POWER #PWR02
 U 1 1 5D30684E
 P 4150 3150
 F 0 "#PWR02" H 4150 3000 50  0001 C CNN
@@ -392,23 +392,21 @@ F 3 "" H 4150 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C1
+L Device:C_Small C1
 U 1 1 5D32A9C5
 P 3900 3700
 F 0 "C1" H 4015 3746 50  0000 L CNN
 F 1 "0.1uF" H 4015 3655 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 3938 3550 50  0001 C CNN
-F 3 "" H 3900 3700 50  0001 C CNN
+F 3 "~" H 3900 3700 50  0001 C CNN
 	1    3900 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3900 3550 3900 3400
 Connection ~ 3900 3400
 Wire Wire Line
 	3900 3400 3700 3400
 $Comp
-L POWER:GND #PWR01
+L Power_Source-rescue:GND-POWER #PWR01
 U 1 1 5D32C894
 P 3900 4000
 F 0 "#PWR01" H 3900 3750 50  0001 C CNN
@@ -418,8 +416,6 @@ F 3 "" H 3900 4000 50  0001 C CNN
 	1    3900 4000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3900 3850 3900 4000
 $Comp
 L Device:LED D1
 U 1 1 5D33D42E
@@ -443,7 +439,7 @@ F 3 "" H 7750 2950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L POWER:+3V3 #PWR06
+L Power_Source-rescue:+3V3-POWER #PWR06
 U 1 1 5D33EAEF
 P 7450 2400
 F 0 "#PWR06" H 7450 2250 50  0001 C CNN
@@ -461,4 +457,8 @@ Wire Wire Line
 	7450 2950 7600 2950
 Wire Wire Line
 	7900 2950 8450 2950
+Wire Wire Line
+	3900 3400 3900 3600
+Wire Wire Line
+	3900 3800 3900 4000
 $EndSCHEMATC

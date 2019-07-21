@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L POWER:+3V3 #PWR?
+L Power_Source-rescue:+3V3-POWER #PWR?
 U 1 1 5D355605
 P 5150 3450
 AR Path="/5D2F5414/5D355605" Ref="#PWR?"  Part="1" 
@@ -30,7 +30,7 @@ $EndComp
 Wire Wire Line
 	5150 3450 5150 3550
 $Comp
-L Device:C C?
+L Device:C_Small C?
 U 1 1 5D355606
 P 5450 3550
 AR Path="/5D2F5414/5D355606" Ref="C?"  Part="1" 
@@ -42,10 +42,8 @@ F 3 "" H 5450 3550 50  0001 C CNN
 	1    5450 3550
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	5300 3550 5150 3550
 $Comp
-L POWER:GND #PWR?
+L Power_Source-rescue:GND-POWER #PWR?
 U 1 1 5D355607
 P 5600 3850
 AR Path="/5D2F5414/5D355607" Ref="#PWR?"  Part="1" 
@@ -58,7 +56,7 @@ F 3 "" H 5600 3850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L POWER:GND #PWR?
+L Power_Source-rescue:GND-POWER #PWR?
 U 1 1 5D355608
 P 4800 4050
 AR Path="/5D2F5414/5D355608" Ref="#PWR?"  Part="1" 
@@ -88,7 +86,7 @@ AR Path="/5D2F5414/5D355609" Ref="Q?"  Part="1"
 AR Path="/5D31AE1A/5D355609" Ref="Q2"  Part="1" 
 F 0 "Q2" H 7041 3496 50  0000 L CNN
 F 1 "Q_NPN_BEC" H 7041 3405 50  0000 L CNN
-F 2 "SS8050:SOT-23" H 7050 3550 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7050 3550 50  0001 C CNN
 F 3 "" H 6850 3450 50  0001 C CNN
 	1    6850 3450
 	1    0    0    -1  
@@ -113,7 +111,7 @@ Wire Wire Line
 Text Label 6950 2550 3    50   ~ 0
 LEDK
 $Comp
-L POWER:GND #PWR?
+L Power_Source-rescue:GND-POWER #PWR?
 U 1 1 5D35560B
 P 6950 4050
 AR Path="/5D2F5414/5D35560B" Ref="#PWR?"  Part="1" 
@@ -163,7 +161,7 @@ Wire Wire Line
 Wire Wire Line
 	6200 3450 5850 3450
 $Comp
-L POWER:+3V3 #PWR?
+L Power_Source-rescue:+3V3-POWER #PWR?
 U 1 1 5D312D22
 P 6600 2500
 AR Path="/5D2F5414/5D312D22" Ref="#PWR?"  Part="1" 
@@ -216,7 +214,7 @@ CS
 Text HLabel 8500 3000 2    50   Input ~ 0
 BLK
 $Comp
-L POWER:+3V3 #PWR?
+L Power_Source-rescue:+3V3-POWER #PWR?
 U 1 1 5D318094
 P 7750 3100
 AR Path="/5D2F5414/5D318094" Ref="#PWR?"  Part="1" 
@@ -229,7 +227,7 @@ F 3 "" H 7750 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L POWER:GND #PWR?
+L Power_Source-rescue:GND-POWER #PWR?
 U 1 1 5D355610
 P 7750 3600
 AR Path="/5D2F5414/5D355610" Ref="#PWR?"  Part="1" 
@@ -298,4 +296,8 @@ Wire Wire Line
 Wire Wire Line
 	4650 3350 5000 3350
 Connection ~ 4800 3850
+Wire Wire Line
+	5150 3550 5350 3550
+Wire Wire Line
+	5550 3550 5600 3550
 $EndSCHEMATC
