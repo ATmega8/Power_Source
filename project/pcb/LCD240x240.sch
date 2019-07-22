@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 6
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -151,19 +151,6 @@ SDA
 Text Label 4900 3750 2    50   ~ 0
 RES
 $Comp
-L Device:Q_NPN_BEC Q1
-U 1 1 5D30E20D
-P 6850 3450
-AR Path="/5D2F5414/5D30E20D" Ref="Q1"  Part="1" 
-AR Path="/5D31AE1A/5D30E20D" Ref="Q?"  Part="1" 
-F 0 "Q1" H 7041 3496 50  0000 L CNN
-F 1 "Q_NPN_BEC" H 7041 3405 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 7050 3550 50  0001 C CNN
-F 3 "" H 6850 3450 50  0001 C CNN
-	1    6850 3450
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R6
 U 1 1 5D30ED87
 P 6950 2950
@@ -289,4 +276,17 @@ Wire Wire Line
 	5100 2950 5300 2950
 Wire Wire Line
 	5500 2950 5550 2950
+$Comp
+L Device:Q_NPN_BEC Q1
+U 1 1 5D30E20D
+P 6850 3450
+AR Path="/5D2F5414/5D30E20D" Ref="Q1"  Part="1" 
+AR Path="/5D31AE1A/5D30E20D" Ref="Q?"  Part="1" 
+F 0 "Q1" H 7041 3496 50  0000 L CNN
+F 1 "S8050" H 7041 3405 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7050 3550 50  0001 C CNN
+F 3 "" H 6850 3450 50  0001 C CNN
+	1    6850 3450
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

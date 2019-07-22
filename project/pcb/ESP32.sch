@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 6
+Sheet 7 7
 Title ""
 Date ""
 Rev ""
@@ -209,8 +209,6 @@ Wire Wire Line
 Wire Wire Line
 	8050 3750 8450 3750
 Wire Wire Line
-	8050 3850 8450 3850
-Wire Wire Line
 	8050 3950 8450 3950
 Wire Wire Line
 	8050 4050 8450 4050
@@ -220,6 +218,8 @@ Wire Wire Line
 	8050 4250 8450 4250
 Wire Wire Line
 	8050 4350 8450 4350
+Wire Wire Line
+	8050 4450 8450 4450
 Text Label 8050 3250 0    50   ~ 0
 GPIO2
 Text Label 8050 3350 0    50   ~ 0
@@ -232,20 +232,18 @@ Text Label 8050 3650 0    50   ~ 0
 GPIO13
 Text Label 8050 3750 0    50   ~ 0
 GPIO14
-Text Label 8050 3850 0    50   ~ 0
-GPIO16
 Text Label 8050 3950 0    50   ~ 0
-GPIO17
+GPIO16
 Text Label 8050 4050 0    50   ~ 0
-GPIO18
+GPIO17
 Text Label 8050 4150 0    50   ~ 0
-GPIO19
+GPIO18
 Text Label 8050 4250 0    50   ~ 0
-GPIO21
+GPIO19
 Text Label 8050 4350 0    50   ~ 0
+GPIO21
+Text Label 8050 4450 0    50   ~ 0
 GPIO22
-Wire Wire Line
-	8050 4450 8450 4450
 Wire Wire Line
 	8050 4550 8450 4550
 Wire Wire Line
@@ -256,33 +254,35 @@ Wire Wire Line
 	8050 4850 8450 4850
 Wire Wire Line
 	8050 4950 8450 4950
-Text Label 8050 4450 0    50   ~ 0
-GPIO23
-Text Label 8050 4550 0    50   ~ 0
-GPIO25
-Text Label 8050 4650 0    50   ~ 0
-GPIO26
-Text Label 8050 4750 0    50   ~ 0
-GPIO27
-Text Label 8050 4850 0    50   ~ 0
-GPIO32
-Text Label 8050 4950 0    50   ~ 0
-GPIO33
 Wire Wire Line
 	8050 5050 8450 5050
+Text Label 8050 4550 0    50   ~ 0
+GPIO23
+Text Label 8050 4650 0    50   ~ 0
+GPIO25
+Text Label 8050 4750 0    50   ~ 0
+GPIO26
+Text Label 8050 4850 0    50   ~ 0
+GPIO27
+Text Label 8050 4950 0    50   ~ 0
+GPIO32
+Text Label 8050 5050 0    50   ~ 0
+GPIO33
 Wire Wire Line
 	8050 5150 8450 5150
 Wire Wire Line
 	8050 5250 8450 5250
 Wire Wire Line
 	8050 5350 8450 5350
-Text Label 8050 5050 0    50   ~ 0
-GPI34
+Wire Wire Line
+	8050 5450 8450 5450
 Text Label 8050 5150 0    50   ~ 0
-GPI35
+GPI34
 Text Label 8050 5250 0    50   ~ 0
-GPI36
+GPI35
 Text Label 8050 5350 0    50   ~ 0
+GPI36
+Text Label 8050 5450 0    50   ~ 0
 GPI39
 Text HLabel 8450 3250 2    50   BiDi ~ 0
 GPIO2
@@ -296,37 +296,37 @@ Text HLabel 8450 3650 2    50   BiDi ~ 0
 GPIO13
 Text HLabel 8450 3750 2    50   BiDi ~ 0
 GPIO14
-Text HLabel 8450 3850 2    50   BiDi ~ 0
-GPIO16
 Text HLabel 8450 3950 2    50   BiDi ~ 0
-GPIO17
+GPIO16
 Text HLabel 8450 4050 2    50   BiDi ~ 0
-GPIO18
+GPIO17
 Text HLabel 8450 4150 2    50   BiDi ~ 0
-GPIO19
+GPIO18
 Text HLabel 8450 4250 2    50   BiDi ~ 0
-GPIO21
+GPIO19
 Text HLabel 8450 4350 2    50   BiDi ~ 0
-GPIO22
+GPIO21
 Text HLabel 8450 4450 2    50   BiDi ~ 0
-GPIO23
+GPIO22
 Text HLabel 8450 4550 2    50   BiDi ~ 0
-GPIO25
+GPIO23
 Text HLabel 8450 4650 2    50   BiDi ~ 0
-GPIO26
+GPIO25
 Text HLabel 8450 4750 2    50   BiDi ~ 0
-GPIO27
+GPIO26
 Text HLabel 8450 4850 2    50   BiDi ~ 0
-GPIO32
+GPIO27
 Text HLabel 8450 4950 2    50   BiDi ~ 0
+GPIO32
+Text HLabel 8450 5050 2    50   BiDi ~ 0
 GPIO33
-Text HLabel 8450 5050 2    50   Input ~ 0
-GPI34
 Text HLabel 8450 5150 2    50   Input ~ 0
-GPI35
+GPI34
 Text HLabel 8450 5250 2    50   Input ~ 0
-GPI36
+GPI35
 Text HLabel 8450 5350 2    50   Input ~ 0
+GPI36
+Text HLabel 8450 5450 2    50   Input ~ 0
 GPI39
 $Comp
 L Power_Source-rescue:+3V3-POWER #PWR05
@@ -451,4 +451,10 @@ Wire Wire Line
 	3900 3400 3900 3600
 Wire Wire Line
 	3900 3800 3900 4000
+Wire Wire Line
+	8050 3850 8450 3850
+Text Label 8050 3850 0    50   ~ 0
+GPIO15
+Text HLabel 8450 3850 2    50   BiDi ~ 0
+GPIO15
 $EndSCHEMATC
