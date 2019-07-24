@@ -127,4 +127,5 @@
   (lib (name Valve)(type KiCad)(uri ${KISYSMOD}/Valve.pretty)(options "")(descr ""))
   (lib (name Varistor)(type KiCad)(uri ${KISYSMOD}/Varistor.pretty)(options "")(descr ""))
   (lib (name MISC)(type KiCad)(uri ${KIPRJMOD}/modules/MISC.pretty)(options "")(descr ""))
+  (lib (name USB)(type KiCad)(uri ${KIPRJMOD}/modules/USB.pretty)(options "")(descr ""))
 )
