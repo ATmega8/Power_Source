@@ -1,7 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP INA219
-F http://www.ti.com/cn/lit/ds/symlink/ina219.pdf
-$ENDCMP
-#
-#End Doc Library

@@ -1,0 +1,206 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Interface_UART:SP3485EN U4
+U 1 1 5D35FAAE
+P 5350 3500
+F 0 "U4" H 5350 4081 50  0000 C CNN
+F 1 "SP3485EN" H 5350 3990 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6400 3150 50  0001 C CIN
+F 3 "http://www.icbase.com/pdf/SPX/SPX00480106.pdf" H 5350 3500 50  0001 C CNN
+	1    5350 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 5D360486
+P 5350 4050
+F 0 "#PWR0111" H 5350 3800 50  0001 C CNN
+F 1 "GND" H 5355 3877 50  0000 C CNN
+F 2 "" H 5350 4050 50  0001 C CNN
+F 3 "" H 5350 4050 50  0001 C CNN
+	1    5350 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0112
+U 1 1 5D3607EE
+P 5350 2950
+F 0 "#PWR0112" H 5350 2800 50  0001 C CNN
+F 1 "+3V3" H 5365 3123 50  0000 C CNN
+F 2 "" H 5350 2950 50  0001 C CNN
+F 3 "" H 5350 2950 50  0001 C CNN
+	1    5350 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 2950 5350 3050
+Wire Wire Line
+	5350 3900 5350 4050
+$Comp
+L Device:C_Small C9
+U 1 1 5D361383
+P 5600 3050
+F 0 "C9" V 5371 3050 50  0000 C CNN
+F 1 "0.1uF" V 5462 3050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5600 3050 50  0001 C CNN
+F 3 "~" H 5600 3050 50  0001 C CNN
+	1    5600 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0113
+U 1 1 5D36224F
+P 5700 2950
+F 0 "#PWR0113" H 5700 2700 50  0001 C CNN
+F 1 "GND" H 5705 2777 50  0000 C CNN
+F 2 "" H 5700 2950 50  0001 C CNN
+F 3 "" H 5700 2950 50  0001 C CNN
+	1    5700 2950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5500 3050 5350 3050
+Connection ~ 5350 3050
+Wire Wire Line
+	5350 3050 5350 3100
+Wire Wire Line
+	5700 3050 5700 2950
+Wire Wire Line
+	5750 3400 6000 3400
+Wire Wire Line
+	5750 3600 6000 3600
+Text HLabel 6400 3400 2    50   BiDi ~ 0
+A
+Text HLabel 6400 3600 2    50   BiDi ~ 0
+B
+$Comp
+L Device:R R14
+U 1 1 5D36351A
+P 6000 3250
+F 0 "R14" H 6070 3296 50  0000 L CNN
+F 1 "4.7K" H 6070 3205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6070 3159 50  0001 L CNN
+F 3 "~" H 6000 3250 50  0001 C CNN
+	1    6000 3250
+	1    0    0    -1  
+$EndComp
+Connection ~ 6000 3400
+Wire Wire Line
+	6000 3400 6400 3400
+Wire Wire Line
+	6000 3100 5350 3100
+Connection ~ 5350 3100
+$Comp
+L Device:R R15
+U 1 1 5D36410C
+P 6000 3750
+F 0 "R15" H 6070 3796 50  0000 L CNN
+F 1 "4.7K" H 6070 3705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6070 3659 50  0001 L CNN
+F 3 "~" H 6000 3750 50  0001 C CNN
+	1    6000 3750
+	1    0    0    -1  
+$EndComp
+Connection ~ 6000 3600
+Wire Wire Line
+	6000 3600 6400 3600
+Wire Wire Line
+	6000 3900 5350 3900
+Connection ~ 5350 3900
+Wire Wire Line
+	4950 3700 4950 3900
+Wire Wire Line
+	4950 3900 5350 3900
+Wire Wire Line
+	4950 3400 4850 3400
+Wire Wire Line
+	4850 3400 4850 3500
+Wire Wire Line
+	4850 3600 4950 3600
+Wire Wire Line
+	4050 3900 4950 3900
+Connection ~ 4950 3900
+Wire Wire Line
+	4050 3500 4850 3500
+Connection ~ 4850 3500
+Wire Wire Line
+	4850 3500 4850 3600
+$Comp
+L Device:R R12
+U 1 1 5D366D1B
+P 4050 3250
+F 0 "R12" H 4120 3296 50  0000 L CNN
+F 1 "4.7K" H 4120 3205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 4120 3159 50  0001 L CNN
+F 3 "~" H 4050 3250 50  0001 C CNN
+	1    4050 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 3400 4050 3500
+Wire Wire Line
+	4050 3100 5350 3100
+$Comp
+L Device:R R11
+U 1 1 5D367B7F
+P 3500 3700
+F 0 "R11" V 3293 3700 50  0000 C CNN
+F 1 "4.7K" V 3384 3700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3385 3700 50  0001 C CNN
+F 3 "~" H 3500 3700 50  0001 C CNN
+	1    3500 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3650 3700 3750 3700
+Wire Wire Line
+	3350 3700 3000 3700
+Text HLabel 3000 3700 0    50   Input ~ 0
+TXD
+$Comp
+L Device:R R13
+U 1 1 5D368928
+P 4700 3300
+F 0 "R13" V 4493 3300 50  0000 C CNN
+F 1 "1K" V 4584 3300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4585 3300 50  0001 C CNN
+F 3 "~" H 4700 3300 50  0001 C CNN
+	1    4700 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 3300 4850 3300
+Wire Wire Line
+	4550 3300 4350 3300
+Text HLabel 4350 3300 0    50   Output ~ 0
+RXD
+$Comp
+L Device:Q_NPN_BEC Q?
+U 1 1 5D371D42
+P 3950 3700
+AR Path="/5D2F5414/5D371D42" Ref="Q?"  Part="1" 
+AR Path="/5D31AE1A/5D371D42" Ref="Q?"  Part="1" 
+AR Path="/5D35F1AC/5D371D42" Ref="Q4"  Part="1" 
+F 0 "Q4" H 4141 3746 50  0000 L CNN
+F 1 "S8050" H 4141 3655 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4150 3800 50  0001 C CNN
+F 3 "" H 3950 3700 50  0001 C CNN
+	1    3950 3700
+	1    0    0    -1  
+$EndComp
+Connection ~ 4050 3500
+$EndSCHEMATC
