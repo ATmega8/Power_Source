@@ -1,3 +1,6 @@
 [submodule "project/pcb/Panel/kicad-lib"]
 	path = project/pcb/Panel/kicad-lib
 	url = https://github.com/xiongyumail/kicad-lib.git
+[submodule "project/pcb/Down/kicad-lib"]
+	path = project/pcb/Down/kicad-lib
+	url = https://github.com/xiongyumail/kicad-lib
