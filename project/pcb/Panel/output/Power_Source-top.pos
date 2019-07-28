@@ -1,0 +1,42 @@
+### Module positions - created on 2019-07-28 11:38:26 ###
+### Printed by Pcbnew version kicad (5.1.0)-1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val          Package                                                       PosX       PosY       Rot  Side
+C1        0.1uF        C_0402_1005Metric                                          60.0000    28.0000   90.0000  top
+C2        0.1uF        C_0402_1005Metric                                          77.3000     6.9000    0.0000  top
+C3        0.1uF        C_0402_1005Metric                                          12.0000     9.5150   90.0000  top
+C4        10uF         C_0603_1608Metric                                          19.0000    27.0000   90.0000  top
+C5        1uF          C_0603_1608Metric                                          19.0000    23.0000  270.0000  top
+C6        10uF         C_0603_1608Metric                                           9.0000    27.0000   90.0000  top
+C7        1uF          C_0603_1608Metric                                           9.0000    23.0000  270.0000  top
+C8        0.1uF        C_0402_1005Metric                                          85.0000    40.0000   90.0000  top
+C9        0.1uF        C_0402_1005Metric                                          62.0000     4.0000  270.0000  top
+D1        LED          LED_0603_1608Metric                                        82.0000     2.0000  270.0000  top
+J4        CON1         Molex_CLIK-Mate_502386-0470_1x04-1MP_P1.25mm_Horizontal    29.0000     4.0000    0.0000  top
+J5        CON2         Molex_CLIK-Mate_502386-0470_1x04-1MP_P1.25mm_Horizontal    56.0000     4.0000    0.0000  top
+Q1        S8050        SOT-23                                                     78.0000     3.9000    0.0000  top
+Q2        S8050        SOT-23                                                      8.0000    11.0000   90.0000  top
+Q4        S8050        SOT-23                                                     62.0000     9.0000    0.0000  top
+R1        10K          R_0402_1005Metric                                          60.0000    26.0000   90.0000  top
+R2        10K          R_0402_1005Metric                                          82.0000     9.0000   90.0000  top
+R3        1K           R_0402_1005Metric                                          82.0000     5.0000  270.0000  top
+R4        1K           R_0402_1005Metric                                          74.0000     5.0000  180.0000  top
+R5        10K          R_0402_1005Metric                                          74.0000     7.0000    0.0000  top
+R6        10           R_0402_1005Metric                                          79.6000     6.9000    0.0000  top
+R7        1K           R_0402_1005Metric                                           7.0000     6.0000  270.0000  top
+R8        10K          R_0402_1005Metric                                          12.0000     6.0000   90.0000  top
+R9        10           R_0402_1005Metric                                          12.0000    12.0000   90.0000  top
+R10       0.1          R_2512_6332Metric                                          73.0000    40.0000    0.0000  top
+R11       4.7K         R_0402_1005Metric                                          61.0000    12.0000   90.0000  top
+R12       4.7K         R_0402_1005Metric                                          72.0000     5.0000  270.0000  top
+R13       1K           R_0402_1005Metric                                          72.0000     3.0000  270.0000  top
+R14       4.7K         R_0402_1005Metric                                          55.0000     8.0000    0.0000  top
+R15       4.7K         R_0402_1005Metric                                          57.0000     8.0000    0.0000  top
+RN1       10K          R_Array_Concave_4x0402                                     83.0000    40.0000  180.0000  top
+RN2       10K          R_Array_Concave_4x0402                                     14.0000    31.0000  270.0000  top
+RN3       10K          R_Array_Concave_4x0402                                     14.2500    19.0000   90.0000  top
+U2        AMS1117-LDO  SOT-223                                                    14.0000    25.0000   90.0000  top
+U3        INA219       SOT-23-8                                                   80.0000    40.0000  180.0000  top
+U4        SP3485EN     SOIC-8_3.9x4.9mm_P1.27mm                                   67.0000     4.0000  180.0000  top
+## End

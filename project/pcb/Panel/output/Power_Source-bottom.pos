@@ -1,0 +1,8 @@
+### Module positions - created on 2019-07-28 11:38:26 ###
+### Printed by Pcbnew version kicad (5.1.0)-1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val              Package                PosX       PosY       Rot  Side
+LCD1      IPS1.3'240x240   IPS1.3'240x240     -78.5000    28.2000  180.0000  bottom
+LCD2      IPS1.14'240x135  IPS1.14'240x135    -30.0000     7.4000   90.0000  bottom
+## End
