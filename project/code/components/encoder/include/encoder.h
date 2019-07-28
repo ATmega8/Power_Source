@@ -8,7 +8,7 @@ extern "C" {
 #define ENCODER_VALUE_MIN   (-20)
 #define ENCODER_PIN_A   4 
 #define ENCODER_PIN_B   5
-#define ENCODER_PIN_D   12 // button
+#define ENCODER_PIN_D   2 // button
 
 bool encoder_get_button_state();
 

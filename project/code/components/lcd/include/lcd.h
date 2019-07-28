@@ -15,7 +15,7 @@ extern "C" {
 #define LCD_PIN_CS0  21
 #define LCD_PIN_CS1  22
 
-#define LCD_PIN_BCKL 26
+#define LCD_PIN_BCKL 15
 
 void inline lcd_set_res(uint8_t state)
 {
@@ -39,7 +39,7 @@ void inline lcd_set_cs1(uint8_t state)
 
 void inline lcd_set_blk(uint8_t state)
 {
-    gpio_set_level(LCD_PIN_BCKL, !state);
+    gpio_set_level(LCD_PIN_BCKL, state);
 }
 
 
