@@ -329,7 +329,7 @@ void gui_init(lv_disp_t **disp_array, lv_indev_t **indev_array, lv_theme_t * th)
     // lv_obj_set_event_cb(obj, general_event_handler);
     lv_spinbox_set_digit_format(spinbox, 5, 2);
     lv_spinbox_step_prev(spinbox);
-    lv_obj_set_width(spinbox, 160);
+    lv_obj_set_width(spinbox, 240);
     lv_obj_align(spinbox, NULL, LV_ALIGN_CENTER, 0, 0);
     lv_group_add_obj(encoder_group, spinbox);
 }
