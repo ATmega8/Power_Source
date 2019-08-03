@@ -26,6 +26,7 @@
 #include "encoder.h"
 #include "i2c_bus.h"
 #include "INA219.h"
+#include "remote.h"
 
 #define WIFI_SSID      CONFIG_WIFI_SSID
 #define WIFI_PASS      CONFIG_WIFI_PASSWORD
@@ -547,6 +548,8 @@ void app_main()
 
     i2c_bus_init();
     INA219_init(INA219_ADDRESS);
+
+    remote_init();
 
     xTaskCreate(gui_task, "gui_task", 4096, NULL, 5, NULL);
     xTaskCreate(sensor_task, "sensor_task", 2048, NULL, 5, NULL);
